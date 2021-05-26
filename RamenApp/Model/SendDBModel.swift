@@ -17,14 +17,22 @@ protocol SendProfileDone {
     func checkOK()
 }
 
+//投稿完了後のプロトコル
+protocol DoneSendCentents {
+    func checkDoneContents()
+}
+
 
 class SendDBModel{
     
     let db = Firestore.firestore()
     var sendProfileDone:SendProfileDone?
+    var doneSendContents:DoneSendCentents?
     
     //構造体をアプリ内に保存するために使用
     var userDefaultsEX = UserDefaultsEX()
+    
+    var myProfile = [String]()
     
     //プロフィール情報をDBに保存する(新規登録)
     func sendProfileDB(userName:String, profileText:String, imageData:Data) {
@@ -66,6 +74,42 @@ class SendDBModel{
         }
     }
     
+    //投稿データをfireStoreへ保存する
+    func sendContentDB(price:String,category:String,shopName:String,review:String,userName:String,imageData:Data,sender:ProfileModel,rate:Double) {
+        
+        let imageRef = Storage.storage().reference().child("contentImage").child("\(UUID().uuidString + String(Date().timeIntervalSince1970)).jpg")
+        
+        imageRef.putData(imageData, metadata: nil) { metaData, error in
+            
+            if error != nil{
+                return
+            }
+            imageRef.downloadURL { url, error in
+                
+                if error != nil{
+                    return
+                }
+                
+                if url != nil{
+                    self.myProfile.append(sender.imageURLString!)
+                    self.myProfile.append(sender.profileText!)
+                    self.myProfile.append(sender.userID!)
+                    self.myProfile.append(sender.userName!)
+                    
+                    //User別で投稿を保存する
+                    //お店の位置情報と、料理自体の名前、あとで追加予定
+                    self.db.collection("Users").document(Auth.auth().currentUser!.uid).collection("ownContents").document().setData(["userName":userName,"userID":Auth.auth().currentUser!.uid, "price":price,"shopName":shopName,"review":review,"image":url?.absoluteString,"sender":self.myProfile,"rate":rate, "Date": String(Date().timeIntervalSince1970)])
+                    
+                    //カテゴリー別で投稿を保存する
+                    //お店の位置情報と、料理自体の名前、あとで追加予定
+                    self.db.collection(category).document().setData(["userName":userName,"userID":Auth.auth().currentUser!.uid, "price":price,"shopName":shopName,"review":review,"image":url?.absoluteString,"sender":self.myProfile,"rate":rate, "Date": String(Date().timeIntervalSince1970)])
+                    
+                    //画面遷移を行うプロトコルを発動
+                    self.doneSendContents?.checkDoneContents()
+                }
+            }
+        }
+    }
     
     
     

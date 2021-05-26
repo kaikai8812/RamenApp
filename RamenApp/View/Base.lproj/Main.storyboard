@@ -291,7 +291,8 @@
                     <connections>
                         <outlet property="cayegorySelectButton" destination="noa-kO-QHp" id="Cdo-lL-pHI"/>
                         <outlet property="cotentImageView" destination="Xoc-a5-0bC" id="a6h-M2-ZDX"/>
-                        <outlet property="reviewCosmosView" destination="334-JJ-ZIm" id="zzg-Zn-JqL"/>
+                        <outlet property="priceTextField" destination="WQs-yY-VGC" id="TY1-s4-thS"/>
+                        <outlet property="reviewCosmosview" destination="334-JJ-ZIm" id="jWL-7o-KCf"/>
                         <outlet property="reviewTextView" destination="wmR-vM-kN9" id="dmf-MR-QLX"/>
                         <outlet property="shopNameTextField" destination="F3b-En-dPS" id="nFy-Nh-TUM"/>
                     </connections>

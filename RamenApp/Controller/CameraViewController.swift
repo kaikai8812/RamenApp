@@ -11,12 +11,16 @@ import EMAlertController //カテゴリー選択アラート用
 import PKHUD
 import Cosmos
 
-class CameraViewController: UIViewController {
+class CameraViewController: UIViewController,DoneSendCentents {
+  
+    
     
     
     @IBOutlet weak var cotentImageView: UIImageView!
+    @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var shopNameTextField: UITextField!
     @IBOutlet weak var reviewTextView: UITextView!
+    @IBOutlet weak var reviewCosmosview: CosmosView!
     @IBOutlet weak var cayegorySelectButton: UIButton!
     
     
@@ -27,6 +31,7 @@ class CameraViewController: UIViewController {
     //モデルのインスタンス化
     var userDefaultsEX:UserDefaultsEX?
     var sendDBModel = SendDBModel()
+    var loadModel = LoadModel()
     
     
     
@@ -44,6 +49,8 @@ class CameraViewController: UIViewController {
             showCamera()
         }
     
+        //コンテンツ送信後のデリゲートメソッドの委任許可
+        sendDBModel.doneSendContents = self
     }
 
     //YPImagePickerを利用したフィルターカメラを起動するメソッド
@@ -128,7 +135,18 @@ class CameraViewController: UIViewController {
         if shopNameTextField.text != nil && shopNameTextField.text != nil && categoryString != nil && reviewTextView.text != nil {
             
             //FireStoreに、投稿情報を保存する。
+            sendDBModel.sendContentDB(price: priceTextField.text!, category: categoryString, shopName: shopNameTextField.text!, review: reviewTextView.text!, userName: (profile?.userName)!, imageData: (cotentImageView.image?.jpegData(compressionQuality: 0.1))!, sender: profile!, rate: reviewCosmosview.rating)
             
         }
     }
+    
+    func checkDoneContents() {
+        HUD.hide()
+        self.tabBarController?.selectedIndex = 0
+        
+        //画面遷移後、fireStoreからコンテンツのロードを行う。（カテゴリーは、デフォルトでcategory1を表示する）
+        loadModel.loadContents(category: Constants.menuArray[0])
+        
+    }
+    
 }
