@@ -7,8 +7,11 @@
 
 import UIKit
 import FirebaseAuth
+import PKHUD //ロード画面表示関係
 
-class CreateUserViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CreateUserViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SendProfileDone {
+ 
+    
     
     
     
@@ -23,6 +26,8 @@ class CreateUserViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sendDBModel.sendProfileDone = self
+        
         //各種レイアウト調整
         profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
         userNameTextField.layer.cornerRadius = 20
@@ -36,6 +41,7 @@ class CreateUserViewController: UIViewController, UIImagePickerControllerDelegat
     
 
     @IBAction func profileImageTap(_ sender: Any) {
+        openCamera()
     }
     
     
@@ -81,6 +87,7 @@ class CreateUserViewController: UIViewController, UIImagePickerControllerDelegat
         //userNameが空でないなら
         if userNameTextField.text?.isEmpty != true {
             
+            //FireBaseAuthを用いて、匿名ログインを行う
             Auth.auth().signInAnonymously { [self] result, error in
                 
                 //プロフィールに設定した画像をData型にして圧縮
@@ -89,14 +96,24 @@ class CreateUserViewController: UIViewController, UIImagePickerControllerDelegat
                 if error != nil {
                     print(error.debugDescription)
                 }else{
-                    
-                    sendDBModel.sendProfileDB(userName: <#T##String#>, profileText: <#T##String#>, imageData: <#T##Data#>)
+                    //モデルメソッドを使用して、ユーザ情報をFireStoreに送信
+                    sendDBModel.sendProfileDB(userName: userNameTextField.text!, profileText: profileTextView.text!, imageData: imageData!)
                     
                 }
                 
             }
             
         }
+        
+    }
+    
+    //SendDBModelのデリゲートメソッド(ユーザ新規登録後に呼ばれる。)
+    func checkOK() {
+        
+        HUD.hide()  //ロード画面を終了する
+        
+        //画面遷移(画面を戻る)
+        dismiss(animated: true, completion: nil)
         
     }
     

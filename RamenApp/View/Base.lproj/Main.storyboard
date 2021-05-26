@@ -86,6 +86,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="hQf-NY-NFf"/>
+                    <connections>
+                        <segue destination="8a1-Bw-0YB" kind="presentation" identifier="createVC" modalPresentationStyle="fullScreen" id="5jv-06-yQT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

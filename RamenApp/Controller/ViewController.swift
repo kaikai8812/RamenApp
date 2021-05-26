@@ -7,6 +7,7 @@
 
 import UIKit
 import AMPagerTabs //上部タブ作成のためのライブラリ
+import FirebaseAuth
 
 class ViewController: AMPagerTabsViewController {
     
@@ -18,6 +19,16 @@ class ViewController: AMPagerTabsViewController {
         tabFont = UIFont.systemFont(ofSize: 17, weight: .bold)
         isTabButtonShouldFit = true
         self.viewControllers = getTabs()
+        
+        //サインインしているかどうかで場合分け
+        if Auth.auth().currentUser != nil {
+            //サインインしている場合
+            
+        }else{
+            //サインインしていない場合
+            performSegue(withIdentifier: "createVC", sender: nil)
+            
+        }
         
     }
     

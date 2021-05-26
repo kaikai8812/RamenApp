@@ -18,6 +18,8 @@
 		6CDB8467265D97EE008C83A0 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB8466265D97EE008C83A0 /* CameraViewController.swift */; };
 		6CDB8469265D99CD008C83A0 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB8468265D99CD008C83A0 /* CreateUserViewController.swift */; };
 		6CDB846B265DA355008C83A0 /* SendDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB846A265DA355008C83A0 /* SendDBModel.swift */; };
+		6CDB846D265DCC16008C83A0 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB846C265DCC16008C83A0 /* ProfileModel.swift */; };
+		6CDB846F265DCCB4008C83A0 /* UserDefautsEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB846E265DCCB4008C83A0 /* UserDefautsEX.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		6CDB8466265D97EE008C83A0 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		6CDB8468265D99CD008C83A0 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		6CDB846A265DA355008C83A0 /* SendDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDBModel.swift; sourceTree = "<group>"; };
+		6CDB846C265DCC16008C83A0 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		6CDB846E265DCCB4008C83A0 /* UserDefautsEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefautsEX.swift; sourceTree = "<group>"; };
 		948EEFF0A60A92E025700A9F /* Pods_RamenApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RamenApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99DED77FB533BD1EEE71C340 /* Pods-RamenApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenApp.release.xcconfig"; path = "Target Support Files/Pods-RamenApp/Pods-RamenApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				6CDB846A265DA355008C83A0 /* SendDBModel.swift */,
+				6CDB846C265DCC16008C83A0 /* ProfileModel.swift */,
+				6CDB846E265DCCB4008C83A0 /* UserDefautsEX.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -243,11 +249,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C44303A265C98D000B9AFCB /* ViewController.swift in Sources */,
+				6CDB846D265DCC16008C83A0 /* ProfileModel.swift in Sources */,
 				6CDB8469265D99CD008C83A0 /* CreateUserViewController.swift in Sources */,
 				6CDB8467265D97EE008C83A0 /* CameraViewController.swift in Sources */,
 				6CDB846B265DA355008C83A0 /* SendDBModel.swift in Sources */,
 				6C443036265C98D000B9AFCB /* AppDelegate.swift in Sources */,
 				6C443038265C98D000B9AFCB /* SceneDelegate.swift in Sources */,
+				6CDB846F265DCCB4008C83A0 /* UserDefautsEX.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
