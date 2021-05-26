@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        
+        //キーボードの挙動処理
+        IQKeyboardManager.shared.enable = true
+        
+        //ログアウト処理
+        let fireBaseAuth = Auth.auth()
+        do {
+            try fireBaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print("Error signing out %@", signOutError)
+        }
+        
         return true
     }
 

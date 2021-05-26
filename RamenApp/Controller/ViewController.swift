@@ -45,7 +45,7 @@ class ViewController: AMPagerTabsViewController {
         
         for i in 0..<5 {
             
-            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "view1") as! CameraViewController
+            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "view1") as! ContentsViewController
            
             viewController.title = ""
             viewController.index = i
