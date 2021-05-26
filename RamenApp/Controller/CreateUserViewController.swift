@@ -10,10 +10,6 @@ import FirebaseAuth
 import PKHUD //ロード画面表示関係
 
 class CreateUserViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SendProfileDone {
- 
-    
-    
-    
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var userNameTextField: UITextField!
@@ -22,6 +18,7 @@ class CreateUserViewController: UIViewController, UIImagePickerControllerDelegat
     
     //モデルのインスタンス化
     var sendDBModel = SendDBModel()
+    var checkModel = CheckModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,55 +32,93 @@ class CreateUserViewController: UIViewController, UIImagePickerControllerDelegat
         doneButton.layer.cornerRadius = 20
         
         profileImageView.isUserInteractionEnabled = true
-
+        
+        //カメラとアルバムの使用許可を求めるメソッド
+        checkModel.showCheckPermission()
+        
         
     }
     
-
-    @IBAction func profileImageTap(_ sender: Any) {
-        openCamera()
+    
+    @IBAction func profileImageviewTap(_ sender: Any) {
+        showAlert()
     }
     
     
-    func openCamera(){
-        let sourceType:UIImagePickerController.SourceType = UIImagePickerController.SourceType.photoLibrary
-        // カメラが利用可能かチェック
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
-            // インスタンスの作成
+    
+    //カメラを起動するメソッド
+    func doCamera(){
+        
+        let sourceType:UIImagePickerController.SourceType = .camera
+        
+        //カメラ利用可能かチェック
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            
             let cameraPicker = UIImagePickerController()
+            cameraPicker.allowsEditing = true
             cameraPicker.sourceType = sourceType
             cameraPicker.delegate = self
-            cameraPicker.allowsEditing = true
-//            cameraPicker.showsCameraControls = true
-            present(cameraPicker, animated: true, completion: nil)
-            
-        }else{
-            
+            self.present(cameraPicker, animated: true, completion: nil)
         }
-        
     }
     
+    //アルバムを起動するときのメソッド
+    func doAlbum(){
+        
+        let sourceType:UIImagePickerController.SourceType = .photoLibrary
+        
+        //カメラ利用可能かチェック
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.allowsEditing = true
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            self.present(cameraPicker, animated: true, completion: nil)
+            
+        }
+    }
+    
+    
+    //カメラかアルバムで、画像を選択した際に、選択した画像をどう処理するかを記述
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         
-        if let pickedImage = info[.editedImage] as? UIImage
-        {
-            profileImageView.image = pickedImage
-            //閉じる処理
+        if info[.originalImage] as? UIImage != nil{
+            
+            let selectedImage = info[.originalImage] as! UIImage
+            profileImageView.image = selectedImage
             picker.dismiss(animated: true, completion: nil)
-         }
- 
+        }
     }
- 
-    // 撮影がキャンセルされた時に呼ばれる
+    
+    //カメラやアルバムの選択をキャンセルした際に、どのような動作をするか
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
     
+    func showAlert(){
+        let alertController = UIAlertController(title: "選択", message: "どちらを使用しますか?", preferredStyle: .actionSheet)
+        let action1 = UIAlertAction(title: "カメラ", style: .default) { (alert) in
+            self.doCamera()
+        }
+        let action2 = UIAlertAction(title: "アルバム", style: .default) { (alert) in
+            
+            self.doAlbum()
+        }
+        let action3 = UIAlertAction(title: "キャンセル", style: .cancel)
+        
+        alertController.addAction(action1)
+        alertController.addAction(action2)
+        alertController.addAction(action3)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
     @IBAction func done(_ sender: Any) {
         
         //アカウントを作成する
-
+        
         //userNameが空でないなら
         if userNameTextField.text?.isEmpty != true {
             
@@ -98,14 +133,11 @@ class CreateUserViewController: UIViewController, UIImagePickerControllerDelegat
                 }else{
                     //モデルメソッドを使用して、ユーザ情報をFireStoreに送信
                     sendDBModel.sendProfileDB(userName: userNameTextField.text!, profileText: profileTextView.text!, imageData: imageData!)
-                    
                 }
-                
             }
-            
         }
-        
     }
+    
     
     //SendDBModelのデリゲートメソッド(ユーザ新規登録後に呼ばれる。)
     func checkOK() {
@@ -115,6 +147,12 @@ class CreateUserViewController: UIViewController, UIImagePickerControllerDelegat
         //画面遷移(画面を戻る)
         dismiss(animated: true, completion: nil)
         
+    }
+    
+    //画面がタップされたら、キーボードを閉じる処理
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        userNameTextField.resignFirstResponder()
+        profileTextView.resignFirstResponder()
     }
     
 }

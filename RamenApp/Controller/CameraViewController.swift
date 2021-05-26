@@ -9,6 +9,7 @@ import UIKit
 import YPImagePicker  //フィルター付きカメラの導入
 import EMAlertController //カテゴリー選択アラート用
 import PKHUD
+import Cosmos
 
 class CameraViewController: UIViewController {
     

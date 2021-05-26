@@ -59,14 +59,14 @@ class SendDBModel{
                     //FireStoreへ、ユーザ名、画像、紹介文、ログインid,登録日時を保存 (documet名は、ログインid)
                     self.db.collection("Users").document(Auth.auth().currentUser!.uid).setData(["UserName": userName, "profileText": profileText, "UserID": Auth.auth().currentUser!.uid, "image": imageURL!.absoluteString, "Date": String(Date().timeIntervalSince1970)])
                     
-                   
-                    
                     //fireStoreへデータ送信が完了したら、画面遷移を行う。
-                    self.sendProfileDone?.checkOK()ら
+                    self.sendProfileDone?.checkOK()
                 }
             }
         }
     }
+    
+    
     
     
     

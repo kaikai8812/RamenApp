@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="eW8-Kc-k0r">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="eW8-Kc-k0r">
                                 <rect key="frame" x="87" y="112" width="240" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -70,7 +70,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nuu-nE-3wv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="aa9-KD-7rt">
                     <connections>
-                        <action selector="profileImageTap:" destination="8a1-Bw-0YB" id="BiH-CY-qwg"/>
+                        <action selector="profileImageviewTap:" destination="8a1-Bw-0YB" id="PxK-d0-N3D"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
