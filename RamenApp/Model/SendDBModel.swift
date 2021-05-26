@@ -62,14 +62,12 @@ class SendDBModel{
                    
                     
                     //fireStoreへデータ送信が完了したら、画面遷移を行う。
-                    self.sendProfileDone?.checkOK()
-                    
+                    self.sendProfileDone?.checkOK()ら
                 }
-                
             }
-            
         }
-        
     }
+    
+    
     
 }
