@@ -112,6 +112,16 @@ class ContentsViewController: UIViewController,UICollectionViewDelegate, UIColle
         performSegue(withIdentifier: "detailVC", sender: indexPath.row)
     }
     
+    
+    //detailVCへ画面遷移する際に、タップしたcontentの情報を送信する記述
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let detailVC = segue.destination as? DetailViewController
+        
+        //senderとしてタップしたセルのindexPath.rowが渡ってきている。
+        detailVC?.contentModel = contentModelArray[sender as! Int]
+        
+    }
 
     /*
     // MARK: - Navigation

@@ -6,15 +6,105 @@
 //
 
 import UIKit
+import SDWebImage
+import Cosmos
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    //tableヘッダー作成関連
+    var headerImageView = UIImageView()
+    var blurEffectView = UIVisualEffectView()
+    
+    //contentsViewControllerから戦士してきた際に、タップしたcontentの情報が入ってくる変数
+    var contentModel:ContentModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        //ヘッダーにcontentの画像を載せるための設定
+        headerImageView.sd_setImage(with: URL(string: (contentModel?.imageURLString)!), completed: nil)
+        headerImageView.contentMode = .scaleAspectFill
+        headerImageView.clipsToBounds = true
+        headerImageView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height / 2)
+        tableView.tableHeaderView = headerImageView
+        
+        //ヘッダーに対しエフェクトを作成する。(曇りガラス)
+        let blurEffect = UIBlurEffect(style: .light)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = tableView.tableHeaderView!.bounds
+        blurEffectView.alpha = 0.0
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        tableView.tableHeaderView?.addSubview(blurEffectView)
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        
+        //各項目に値を設定する。
+        let shopNameLabel = cell.contentView.viewWithTag(1) as! UILabel
+        shopNameLabel.text = contentModel?.shopName
+        
+        let priceLabel = cell.contentView.viewWithTag(2) as! UILabel
+        priceLabel.text = contentModel?.price
+        
+        let reviewTextView = cell.contentView.viewWithTag(3) as! UITextView
+        reviewTextView.text = contentModel?.review
+        
+        let reviewRatingView = cell.contentView.viewWithTag(4) as! CosmosView
+        reviewRatingView.rating = (contentModel?.rate)!
+        
+        let userImageView = cell.contentView.viewWithTag(5) as! UIImageView
+        userImageView.sd_setImage(with: URL(string: (contentModel?.sender![0])!), completed: nil)
+        userImageView.layer.cornerRadius = 20.0
+        
+        let userNameLabel = cell.contentView.viewWithTag(6) as! UILabel
+        userNameLabel.text = contentModel?.sender![3]
+        
+        let userProfileTextView = cell.contentView.viewWithTag(7) as! UITextView
+        userProfileTextView.text = contentModel?.sender![1]
+        
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return view.frame.size.height
+    }
+    
+    //webVCへ画面遷移を行う
+    @IBAction func toWebView(_ sender: Any) {
+        performSegue(withIdentifier: "webVC", sender: nil)
+    }
+    
+    //画面遷移の際に呼ばれるメソッド
+    //webVCへ、shopNameの値を渡す。
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let webVC = segue.destination as! WebViewController
+        webVC.shopName = (contentModel?.shopName)!
+        
+    }
 
     /*
     // MARK: - Navigation
