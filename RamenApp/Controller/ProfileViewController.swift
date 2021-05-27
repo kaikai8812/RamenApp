@@ -47,6 +47,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         //カスタムセルが使用できるように設定
         tableView.register(UINib(nibName: "ContentsCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        
         //プロフィール画像のデザイン記述
         imageView.layer.cornerRadius = imageView.frame.width/2
         
@@ -158,23 +159,47 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
     }
     
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return contentModelArray.count
     }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 400
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ContentsCell
+        
+        cell.contentImageView.sd_setImage(with: URL(string: contentModelArray[indexPath.row].imageURLString!), completed: nil)
+        cell.priceLabel.text = contentModelArray[indexPath.row].price
+        cell.shopNameLabel.text = contentModelArray[indexPath.row].shopName
+        cell.reviewLabel.text = contentModelArray[indexPath.row].review
+        cell.reviewRatingView.rating = contentModelArray[indexPath.row].rate!
+        
+        return cell
+    }
+    
+    
+    
     //投稿データを全て入手したら、tebleViewを更新するデリゲートメソッド
     func getData(dataArray: [ContentModel]) {
         
+        contentModelArray = []
         contentModelArray = dataArray
         tableView.reloadData()
     }
     
+    //プロフィールデータを受信したら、受信内容をもとにviewに反映する。
     func getProfileData(dataArray: [ProfileModel]) {
-        <#code#>
+        
+        imageView.sd_setImage(with: URL(string: dataArray[0].imageURLString!), completed: nil)
+        profileTextLabel.text = dataArray[0].profileText
+        
     }
     
     
