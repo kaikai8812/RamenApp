@@ -22,12 +22,18 @@ protocol DoneSendCentents {
     func checkDoneContents()
 }
 
+//フォロー関係のプロトコル
+protocol DoneFollowAction {
+    func checkFollow(flag:Bool)
+}
+
 
 class SendDBModel{
     
     let db = Firestore.firestore()
     var sendProfileDone:SendProfileDone?
     var doneSendContents:DoneSendCentents?
+    var doneFollowAction:DoneFollowAction?
     
     //構造体をアプリ内に保存するために使用
     var userDefaultsEX = UserDefaultsEX()
@@ -74,7 +80,7 @@ class SendDBModel{
         }
     }
     
-    //投稿データをfireStoreへ保存する
+    //投稿データをfireStoreへ保存する 
     func sendContentDB(price:String,category:String,shopName:String,review:String,userName:String,imageData:Data,sender:ProfileModel,rate:Double) {
         
         let imageRef = Storage.storage().reference().child("contentImage").child("\(UUID().uuidString + String(Date().timeIntervalSince1970)).jpg")
@@ -111,7 +117,27 @@ class SendDBModel{
         }
     }
     
-    
-    
+    //フォロー関係のメソッド
+    //ここでのuserIDは、プロフィール画面上のuserのid
+    //contentmodelに、相手のユーザー情報が詰まっているので、引数に使用
+    func followAction(userID:String, followOrNot:Bool,contentModel:ContentModel){
+        
+        //ログイン中のユーザの情報を入手
+        let loginUserProfile:ProfileModel? = userDefaultsEX.codable(forKey: "profile")
+        //もしuserIDが自分のidでなければ
+        if userID != Auth.auth().currentUser?.uid{  //ここのif文、自分のプロフィール画面にはそもそもフォロー画面が表示されないはずなので、必要かも？？要検討
+            
+            //相手のフォロワー情報に、自分の情報を入れる（相手のフォロワーリストに自分を追加する）
+            self.db.collection("Users").document(userID).collection("follower").document(Auth.auth().currentUser!.uid).setData(["follower" : Auth.auth().currentUser?.uid,"followOrNot": followOrNot, "userID": loginUserProfile?.userID, "userName": loginUserProfile?.userName, "image": loginUserProfile?.imageURLString, "profileText":loginUserProfile?.profileText])
+            
+        }
+        
+        //自分のフォローリフトに、フォローする相手の情報を追加する
+        self.db.collection("Users").document(Auth.auth().currentUser!.uid).collection("follow").document(userID).setData(["follow" : userID,"followOrNot": followOrNot, "userID": contentModel.userID, "userName": contentModel.userName, "image": contentModel.sender![0], "profileText":contentModel.sender![1]])
+        
+        //プロトコルを発動
+        doneFollowAction?.checkFollow(flag: followOrNot)
+        
+    }
     
 }

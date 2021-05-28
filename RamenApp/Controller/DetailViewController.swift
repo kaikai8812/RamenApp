@@ -18,7 +18,7 @@ class DetailViewController: UIViewController, UITableViewDelegate,UITableViewDat
     var headerImageView = UIImageView()
     var blurEffectView = UIVisualEffectView()
     
-    //contentsViewControllerから戦士してきた際に、タップしたcontentの情報が入ってくる変数
+    //contentsViewControllerから遷移してきた際に、タップしたcontentの情報が入ってくる変数
     var contentModel:ContentModel?
 
     override func viewDidLoad() {
@@ -98,13 +98,29 @@ class DetailViewController: UIViewController, UITableViewDelegate,UITableViewDat
         performSegue(withIdentifier: "webVC", sender: nil)
     }
     
-    //画面遷移の際に呼ばれるメソッド
+    //webVCへの画面遷移の際に呼ばれるメソッド
     //webVCへ、shopNameの値を渡す。
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let webVC = segue.destination as! WebViewController
         webVC.shopName = (contentModel?.shopName)!
         
     }
+    
+    //プロフィール画面への遷移を行う（ユーザプロフィールイメージ画像をタップ）
+    @IBAction func toProfileVC(_ sender: Any) {
+        
+        let profileVC = storyboard?.instantiateViewController(identifier: "profileVC") as! ProfileViewController
+      
+        //contentの情報を渡す
+        profileVC.contentModel = contentModel
+        //画面遷移
+        navigationController?.pushViewController(profileVC, animated: true)
+        
+    }
+    
+    
+    
+    //
 
     /*
     // MARK: - Navigation
