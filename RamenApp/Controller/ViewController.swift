@@ -23,6 +23,7 @@ class ViewController: AMPagerTabsViewController {
         //サインインしているかどうかで場合分け
         if Auth.auth().currentUser != nil {
             //サインインしている場合
+            performSegue(withIdentifier: "signInVC", sender: nil)
             
         }else{
             //サインインしていない場合

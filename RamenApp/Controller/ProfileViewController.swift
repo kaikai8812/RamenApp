@@ -202,5 +202,18 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     
+    //フォローリスト、フォロワーリストへ遷移するボタン
+    @IBAction func toFFVC(_ sender: UIButton) {
+        
+        let FFVC = storyboard?.instantiateViewController(identifier: "FFVC") as! FollowAndFollowerViewController
+        
+        FFVC.followerArray = followerArray
+        FFVC.followArray = followArray
+        //フォローとフォロワー、どちらがタップされたかをtag番号で選別
+        FFVC.tag = sender.tag
+        
+        self.navigationController?.pushViewController(FFVC, animated: true)
+    }
+    
     
 }

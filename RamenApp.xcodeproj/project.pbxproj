@@ -22,6 +22,10 @@
 		6C44303D265C98D000B9AFCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C44303B265C98D000B9AFCB /* Main.storyboard */; };
 		6C44303F265C98D100B9AFCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C44303E265C98D100B9AFCB /* Assets.xcassets */; };
 		6C443042265C98D100B9AFCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C443040265C98D100B9AFCB /* LaunchScreen.storyboard */; };
+		6CA6C3FA2660631C000BE861 /* FollowAndFollowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA6C3F92660631C000BE861 /* FollowAndFollowerViewController.swift */; };
+		6CA6C3FC266078DC000BE861 /* ContentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA6C3FB266078DC000BE861 /* ContentDetailViewController.swift */; };
+		6CA6C3FE26610A6F000BE861 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA6C3FD26610A6F000BE861 /* SignInViewController.swift */; };
+		6CA6C40026611316000BE861 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA6C3FF26611316000BE861 /* TabBarController.swift */; };
 		6CC8E32C265E1A870006E377 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC8E32B265E1A870006E377 /* Constants.swift */; };
 		6CC8E32E265E59D50006E377 /* CheckModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC8E32D265E59D50006E377 /* CheckModel.swift */; };
 		6CC8E330265E77760006E377 /* LoadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC8E32F265E77760006E377 /* LoadModel.swift */; };
@@ -52,6 +56,10 @@
 		6C44303E265C98D100B9AFCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C443041265C98D100B9AFCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C443043265C98D100B9AFCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6CA6C3F92660631C000BE861 /* FollowAndFollowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowAndFollowerViewController.swift; sourceTree = "<group>"; };
+		6CA6C3FB266078DC000BE861 /* ContentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailViewController.swift; sourceTree = "<group>"; };
+		6CA6C3FD26610A6F000BE861 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		6CA6C3FF26611316000BE861 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		6CC8E32B265E1A870006E377 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6CC8E32D265E59D50006E377 /* CheckModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckModel.swift; sourceTree = "<group>"; };
 		6CC8E32F265E77760006E377 /* LoadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadModel.swift; sourceTree = "<group>"; };
@@ -165,6 +173,10 @@
 				6C014CF6265F2AFA00224290 /* DetailViewController.swift */,
 				6C014CF8265F556F00224290 /* WebViewController.swift */,
 				6C014CFA265F647000224290 /* ProfileViewController.swift */,
+				6CA6C3F92660631C000BE861 /* FollowAndFollowerViewController.swift */,
+				6CA6C3FB266078DC000BE861 /* ContentDetailViewController.swift */,
+				6CA6C3FD26610A6F000BE861 /* SignInViewController.swift */,
+				6CA6C3FF26611316000BE861 /* TabBarController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -293,9 +305,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CA6C3FE26610A6F000BE861 /* SignInViewController.swift in Sources */,
 				6C44303A265C98D000B9AFCB /* ViewController.swift in Sources */,
 				6CDB846D265DCC16008C83A0 /* ProfileModel.swift in Sources */,
 				6C014D03265FD13700224290 /* FollowModel.swift in Sources */,
+				6CA6C3FA2660631C000BE861 /* FollowAndFollowerViewController.swift in Sources */,
+				6CA6C40026611316000BE861 /* TabBarController.swift in Sources */,
 				6C014CFE265F713900224290 /* ContentsCell.swift in Sources */,
 				6CDB8469265D99CD008C83A0 /* CreateUserViewController.swift in Sources */,
 				6CDB8467265D97EE008C83A0 /* ContentsViewController.swift in Sources */,
@@ -307,6 +322,7 @@
 				6C443036265C98D000B9AFCB /* AppDelegate.swift in Sources */,
 				6C443038265C98D000B9AFCB /* SceneDelegate.swift in Sources */,
 				6CDB846F265DCCB4008C83A0 /* UserDefautsEX.swift in Sources */,
+				6CA6C3FC266078DC000BE861 /* ContentDetailViewController.swift in Sources */,
 				6CC8E32E265E59D50006E377 /* CheckModel.swift in Sources */,
 				6CDB8471265DE423008C83A0 /* CameraViewController.swift in Sources */,
 				6CC8E330265E77760006E377 /* LoadModel.swift in Sources */,
