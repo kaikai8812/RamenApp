@@ -138,6 +138,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         self.followArray = []
         self.followArray = followArray
+        //ここに到達しているかを確認
+        print(self.followArray.count)
+        print("配列の数↑")
         //フォロー数を反映させる。
         followLabel.text = String(self.followArray.count)
     }
@@ -209,6 +212,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         FFVC.followerArray = followerArray
         FFVC.followArray = followArray
+        
         //フォローとフォロワー、どちらがタップされたかをtag番号で選別
         FFVC.tag = sender.tag
         

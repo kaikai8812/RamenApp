@@ -169,6 +169,8 @@ class LoadModel {
             
             if let snapShotDoc = snapShot?.documents{
                 
+                self.followerModelArray = []
+                
                 for doc in snapShotDoc {
                     
                     let data = doc.data()
@@ -187,7 +189,7 @@ class LoadModel {
                         }
                     }
                 }
-                self.getFollowersDataProtocol?.getFollowersData(followersArray: self.followerModelArray!, exist: self.ownFollowOrNot!)
+                self.getFollowersDataProtocol?.getFollowersData(followersArray: self.followerModelArray!, exist: self.ownFollowOrNot ?? false)
             }
             
         }
@@ -205,6 +207,8 @@ class LoadModel {
             }
             
             if let snapShotDoc = snapShot?.documents{
+                
+                self.followModelArray = []
                 
                 for doc in snapShotDoc {
                     

@@ -28,6 +28,9 @@ class FollowAndFollowerViewController: UIViewController ,UITableViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         //遷移元のタップした箇所によって、変化
         if tag == 1 {
             segmentControl.selectedSegmentIndex = 0
@@ -36,6 +39,7 @@ class FollowAndFollowerViewController: UIViewController ,UITableViewDelegate, UI
         }
         
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return    1
     }
@@ -78,7 +82,7 @@ class FollowAndFollowerViewController: UIViewController ,UITableViewDelegate, UI
         return cell
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.size.height/5
     }
     
