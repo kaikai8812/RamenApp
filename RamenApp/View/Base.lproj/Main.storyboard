@@ -439,14 +439,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ycj-3Y-3R2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5295.652173913044" y="75"/>
+            <point key="canvasLocation" x="3616" y="818"/>
         </scene>
         <!--Follow And Follower View Controller-->
         <scene sceneID="Yp1-d6-Glk">
             <objects>
                 <viewController storyboardIdentifier="FFVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="J9J-KA-qok" customClass="FollowAndFollowerViewController" customModule="RamenApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fML-v9-FAK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FPF-gS-Ox5">
@@ -501,7 +501,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mJZ-7w-jR1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3271" y="1525"/>
+            <point key="canvasLocation" x="2806" y="1525"/>
         </scene>
         <!--Content Detail View Controller-->
         <scene sceneID="bCK-wj-pau">
@@ -951,7 +951,7 @@
         <designable name="qgu-CM-czK"/>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="iUz-Va-QVx"/>
+        <segue reference="gYY-b8-52n"/>
         <segue reference="aj9-Gs-0lt"/>
     </inferredMetricsTieBreakers>
     <resources>

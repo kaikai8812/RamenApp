@@ -19,19 +19,15 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var loadModel = LoadModel()
     var sendDBModel = SendDBModel()
     
-    //投稿詳細画面から遷移してきた際に、遷移元の投稿の詳細が格納されるインスタンス => ここのcontentModelは、UserIDに使用したいだけ => 前の投稿から、どのユーザーのプロフィール情報かを受け取っている。
-    //フォローフォロワーリストからこっちにきた際に、profileModelのデータ(senderと一緒)のデータが存在すれば、どちらからも遷移が可能になるのでは？？
     
     //投稿画面から渡ってきた際にデータが入るところ
     var contentModel:ContentModel?
     //リストから遷移してきた際に、userIDが入るところ
-    var listUserID = String()
+    var listUserID:String?
     
+    //最終的なプロフィールのユーザid
     var userID = String()
-    
-    
-   
-    
+
     //loadModelから入手してきたデータを入れる配列
     var contentModelArray = [ContentModel]()
     var followerArray = [FollowerModel]()
@@ -51,9 +47,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
+
         
         //プロトコル委任関係
         tableView.delegate = self
@@ -67,36 +61,33 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         imageView.layer.cornerRadius = imageView.frame.width/2
         imageView.clipsToBounds = true
         
+        
+        //投稿詳細から遷移したのか、それ以外から遷移したのかを判別し、userIDに入れるものを判別する。
+        
+        //投稿詳細画面から渡ってきた場合
         if contentModel != nil {
+            
             userID = (contentModel?.userID)!
+            //フォローフォロワーリストから遷移してきた場合
         } else if listUserID != nil {
-            userID = listUserID
-        } else {
-            print("ユーザー情報取得失敗")
-            return
-        }
-        
-       
-        
-        //自分のプロフィールページかそうでないかで場合分け
-        if self.tabBarController?.selectedIndex == 2{
+            
+            userID = listUserID!
+            //タブバーから直接遷移してきた場合
+        } else if self.tabBarController?.selectedIndex == 2{
             //もし、タブバーを使用して自分のプロフィールページを見ている場合の処理 => フォローボタンを消す
             followButton.isHidden = true
             //ログインしているユーザー（自分）の場合なので、現在の自分のIDでsetUpを行う
-            setUp(userID: Auth.auth().currentUser!.uid)
-            
-        } else {
-            
-            if userID == Auth.auth().currentUser?.uid{
-                //自分の投稿から自分のプロフィールページに渡ってきた場合  => フォローボタンを消す
-                followButton.isHidden = true
-            }
-            
-            //自分のプロフィール画面でない時は、遷移前画面から受け取ったcontentModelの情報を使ってsetUpを行う.
-            setUp(userID: userID)
- 
-            
+            userID = Auth.auth().currentUser!.uid
         }
+
+        //もし自分のプロフィール画面だった場合は、フォローするボランを隠す
+        if userID == Auth.auth().currentUser?.uid {
+
+            followButton.isHidden = true
+        }
+        
+        //userIDを用いて、各種データをFireStoreからダウンロードする。
+        setUp(userID: userID)
     }
     
     //userIDを引数にとって、ユーザの情報を取得するメソッドを作成
