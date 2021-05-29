@@ -67,8 +67,14 @@ class SendDBModel{
                     //ユーザ情報を持った構造体を作成
                     let profileModel = ProfileModel(userName: userName, userID: Auth.auth().currentUser!.uid, profileText: profileText, imageURLString: imageURL?.absoluteString)
                     
+                    print(profileModel.userName)
+                    print(profileModel.userID)
+                    print(profileModel.imageURLString)
+               print("")
                     //アプリ内に、構造体をData型にencodeしてから保存(UserDefaultsEXを使用)
-                    self.userDefaultsEX.set(value: profileModel, forKey: "profile")
+                    self.userDefaultsEX.set(value: profileModel, key: "profile")
+//
+                    
                     
                     //FireStoreへ、ユーザ名、画像、紹介文、ログインid,登録日時を保存 (documet名は、ログインid)
                     self.db.collection("Users").document(Auth.auth().currentUser!.uid).setData(["UserName": userName, "profileText": profileText, "UserID": Auth.auth().currentUser!.uid, "image": imageURL!.absoluteString, "Date": String(Date().timeIntervalSince1970)])
@@ -97,6 +103,7 @@ class SendDBModel{
                 }
                 
                 if url != nil{
+                    print()
                     self.myProfile.append(sender.imageURLString!)
                     self.myProfile.append(sender.profileText!)
                     self.myProfile.append(sender.userID!)
@@ -123,7 +130,7 @@ class SendDBModel{
     func followAction(userID:String, followOrNot:Bool,contentModel:ContentModel){
         
         //ログイン中のユーザの情報を入手
-        let loginUserProfile:ProfileModel? = userDefaultsEX.codable(forKey: "profile")
+        let loginUserProfile:ProfileModel? = userDefaultsEX.codable(key: "profile")
         //もしuserIDが自分のidでなければ
         if userID != Auth.auth().currentUser?.uid{  //ここのif文、自分のプロフィール画面にはそもそもフォロー画面が表示されないはずなので、必要かも？？要検討
             

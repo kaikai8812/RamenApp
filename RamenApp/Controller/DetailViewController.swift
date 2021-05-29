@@ -49,6 +49,15 @@ class DetailViewController: UIViewController, UITableViewDelegate,UITableViewDat
         self.navigationController?.isNavigationBarHidden = false
     }
     
+    //ヘッダーのブラー処理
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        blurEffectView.alpha = 1.0
+        //下へ行けば行くほど、ブラーが濃くなる処理
+        blurEffectView.alpha = scrollView.contentOffset.y / 200
+    }
+    
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

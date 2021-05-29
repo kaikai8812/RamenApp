@@ -16,6 +16,7 @@ class ViewController: AMPagerTabsViewController {
         
         settings.tabBackgroundColor = #colorLiteral(red: 0.2819149196, green: 0.7462226748, blue: 0.6821211576, alpha: 1)
         settings.tabButtonColor = #colorLiteral(red: 0.2819149196, green: 0.7462226748, blue: 0.6821211576, alpha: 1)
+        settings.tabHeight = 100
         tabFont = UIFont.systemFont(ofSize: 17, weight: .bold)
         isTabButtonShouldFit = true
         self.viewControllers = getTabs()
@@ -48,7 +49,7 @@ class ViewController: AMPagerTabsViewController {
             
             let viewController = self.storyboard?.instantiateViewController(withIdentifier: "view1") as! ContentsViewController
            
-            viewController.title = ""
+            viewController.title = "\(Constants.titleArray[i])"
             viewController.index = i
         
             vcArray.append(viewController)

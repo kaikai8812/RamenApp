@@ -87,9 +87,9 @@ class FollowAndFollowerViewController: UIViewController ,UITableViewDelegate, UI
         let contentDetailVC = storyboard?.instantiateViewController(withIdentifier: "contentDetailVC") as! ContentDetailViewController
         
         if segmentControl.selectedSegmentIndex == 0 {
-            contentDetailVC.userID = followArray[indexPath.row].userID
+            contentDetailVC.userID = followArray[indexPath.row].userID!
         } else if segmentControl.selectedSegmentIndex == 1{
-            contentDetailVC.userID = followerArray[indexPath.row].userID
+            contentDetailVC.userID = followerArray[indexPath.row].userID!
         }
         
         self.navigationController?.pushViewController(contentDetailVC, animated: true)

@@ -144,7 +144,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgu-CM-czK" customClass="CosmosView" customModule="Cosmos">
+                                                <view userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgu-CM-czK" customClass="CosmosView" customModule="Cosmos">
                                                     <rect key="frame" x="10" y="198" width="162" height="45"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -263,7 +263,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" text="感想文" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fdy-tc-zk6">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="感想文" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fdy-tc-zk6">
                                                     <rect key="frame" x="154" y="214" width="240" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -271,7 +271,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="7" contentMode="scaleToFill" fixedFrame="YES" text="ユーザー自己紹介文" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gLw-NB-qIf">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="7" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="ユーザー自己紹介文" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gLw-NB-qIf">
                                                     <rect key="frame" x="87" y="580" width="240" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -279,12 +279,12 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <view tag="4" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jgt-VO-tfv" customClass="CosmosView" customModule="Cosmos">
+                                                <view userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jgt-VO-tfv" customClass="CosmosView" customModule="Cosmos">
                                                     <rect key="frame" x="87" y="379" width="240" height="73"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yID-gQ-DUU">
+                                                <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yID-gQ-DUU">
                                                     <rect key="frame" x="52" y="492" width="80" height="80"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <gestureRecognizers/>
@@ -334,7 +334,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TVY-s1-muL">
+                            <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TVY-s1-muL">
                                 <rect key="frame" x="38" y="130" width="95" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -461,7 +461,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="112"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5m-fU-vAv">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5m-fU-vAv">
                                                     <rect key="frame" x="20" y="6" width="100" height="100"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -593,7 +593,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xoc-a5-0bC">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xoc-a5-0bC">
                                 <rect key="frame" x="77" y="126" width="260" height="260"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
@@ -715,11 +715,11 @@
             </objects>
             <point key="canvasLocation" x="44.927536231884062" y="75"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="DJx-Y3-aeF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dWi-sE-nIZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="0zz-Ir-sYa"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab1notSelected" id="0zz-Ir-sYa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bFy-R5-Uta">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -734,11 +734,11 @@
             </objects>
             <point key="canvasLocation" x="954" y="75"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="kYr-ZQ-Gri">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qSv-35-Kkv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="2Bo-IF-m5f"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab2notSelected" id="2Bo-IF-m5f"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Ux-Pc-JTJ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -806,11 +806,11 @@
             </objects>
             <point key="canvasLocation" x="2705.7971014492755" y="75"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="Z1X-gv-75q">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EXc-Er-vgt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="cFh-rQ-88b"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab3notSelected" id="cFh-rQ-88b"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jjc-z8-eEG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -833,7 +833,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UKI-tP-n5f">
+                            <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UKI-tP-n5f">
                                 <rect key="frame" x="38" y="130" width="95" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -958,6 +958,9 @@
         <image name="moreInfo" width="128" height="128"/>
         <image name="profile" width="256" height="256"/>
         <image name="send" width="64" height="64"/>
+        <image name="tab1notSelected" width="48" height="32"/>
+        <image name="tab2notSelected" width="40" height="40"/>
+        <image name="tab3notSelected" width="40" height="40"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

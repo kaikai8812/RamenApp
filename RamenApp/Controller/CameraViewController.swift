@@ -29,9 +29,10 @@ class CameraViewController: UIViewController,DoneSendCentents {
     var categoryString = String()
     
     //モデルのインスタンス化
-    var userDefaultsEX:UserDefaultsEX?
+    var userDefaultsEX = UserDefaultsEX()
     var sendDBModel = SendDBModel()
     var loadModel = LoadModel()
+    var profileModel = ProfileModel()
     
     
     
@@ -51,6 +52,13 @@ class CameraViewController: UIViewController,DoneSendCentents {
     
         //コンテンツ送信後のデリゲートメソッドの委任許可
         sendDBModel.doneSendContents = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = true
+        
     }
 
     //YPImagePickerを利用したフィルターカメラを起動するメソッド
@@ -130,12 +138,25 @@ class CameraViewController: UIViewController,DoneSendCentents {
         HUD.dimsBackground = true
         
         //プロフィール情報を保存した構造体がアプリ内に保存されているので、それをデコードして持ってくる。
-        let profile:ProfileModel? = userDefaultsEX?.codable(forKey: "profile")
+        
+        var profile = ProfileModel()
+        profile  = userDefaultsEX.codable(key: "profile")
+        
+
+        print("kai")
+        print(priceTextField.text!)
+        print(categoryString)
+        print(shopNameTextField.text!)
+        print(reviewTextView.text!)
+        print(profile.userName)
+        print(profile.userID)
+        print(reviewCosmosview.rating)
+        print("kai")
         
         if shopNameTextField.text != nil && shopNameTextField.text != nil && categoryString != nil && reviewTextView.text != nil {
             
             //FireStoreに、投稿情報を保存する。
-            sendDBModel.sendContentDB(price: priceTextField.text!, category: categoryString, shopName: shopNameTextField.text!, review: reviewTextView.text!, userName: (profile?.userName)!, imageData: (cotentImageView.image?.jpegData(compressionQuality: 0.1))!, sender: profile!, rate: reviewCosmosview.rating)
+            sendDBModel.sendContentDB(price: priceTextField.text!, category: categoryString, shopName: shopNameTextField.text!, review: reviewTextView.text!, userName: (profile.userName)!, imageData: (cotentImageView.image?.jpegData(compressionQuality: 0.1))!, sender: profile, rate: reviewCosmosview.rating)
             
         }
     }
