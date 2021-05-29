@@ -127,10 +127,19 @@ class SendDBModel{
     //フォロー関係のメソッド
     //ここでのuserIDは、プロフィール画面上のuserのid
     //contentmodelに、相手のユーザー情報が詰まっているので、引数に使用
-    func followAction(userID:String, followOrNot:Bool,contentModel:ContentModel){
+    func followAction(userID:String, followOrNot:Bool,profileModel:ProfileModel){
         
         //ログイン中のユーザの情報を入手
         let loginUserProfile:ProfileModel? = userDefaultsEX.codable(key: "profile")
+        
+        //プロフィール画面上のユーザの情報を取得する
+        var profileUserProfile = ProfileModel()
+        
+        let loadModel = LoadModel()
+        loadModel.loadProfile(userID: userID)
+        
+        
+        
         //もしuserIDが自分のidでなければ
         if userID != Auth.auth().currentUser?.uid{  //ここのif文、自分のプロフィール画面にはそもそもフォロー画面が表示されないはずなので、必要かも？？要検討
             
@@ -140,7 +149,7 @@ class SendDBModel{
         }
         
         //自分のフォローリフトに、フォローする相手の情報を追加する
-        self.db.collection("Users").document(Auth.auth().currentUser!.uid).collection("follow").document(userID).setData(["follow" : userID,"followOrNot": followOrNot, "userID": contentModel.userID, "userName": contentModel.userName, "image": contentModel.sender![0], "profileText":contentModel.sender![1]])
+        self.db.collection("Users").document(Auth.auth().currentUser!.uid).collection("follow").document(userID).setData(["follow" : userID,"followOrNot": followOrNot, "userID": profileModel.userID, "userName": profileModel.userName, "image": profileModel.imageURLString, "profileText":profileModel.profileText])
         
         //プロトコルを発動
         doneFollowAction?.checkFollow(flag: followOrNot)

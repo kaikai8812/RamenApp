@@ -19,13 +19,25 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var loadModel = LoadModel()
     var sendDBModel = SendDBModel()
     
-    //投稿詳細画面から遷移してきた際に、遷移元の投稿の詳細が格納されるインスタンス
+    //投稿詳細画面から遷移してきた際に、遷移元の投稿の詳細が格納されるインスタンス => ここのcontentModelは、UserIDに使用したいだけ => 前の投稿から、どのユーザーのプロフィール情報かを受け取っている。
+    //フォローフォロワーリストからこっちにきた際に、profileModelのデータ(senderと一緒)のデータが存在すれば、どちらからも遷移が可能になるのでは？？
+    
+    //投稿画面から渡ってきた際にデータが入るところ
     var contentModel:ContentModel?
+    //リストから遷移してきた際に、userIDが入るところ
+    var listUserID = String()
+    
+    var userID = String()
+    
+    
+   
     
     //loadModelから入手してきたデータを入れる配列
     var contentModelArray = [ContentModel]()
     var followerArray = [FollowerModel]()
     var followArray = [FollowModel]()
+
+    var profileModel = ProfileModel()
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -40,6 +52,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        
         //プロトコル委任関係
         tableView.delegate = self
         tableView.dataSource = self
@@ -50,6 +65,18 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         //プロフィール画像のデザイン記述
         imageView.layer.cornerRadius = imageView.frame.width/2
+        imageView.clipsToBounds = true
+        
+        if contentModel != nil {
+            userID = (contentModel?.userID)!
+        } else if listUserID != nil {
+            userID = listUserID
+        } else {
+            print("ユーザー情報取得失敗")
+            return
+        }
+        
+       
         
         //自分のプロフィールページかそうでないかで場合分け
         if self.tabBarController?.selectedIndex == 2{
@@ -60,19 +87,14 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
         } else {
             
-            if contentModel?.userID == Auth.auth().currentUser?.uid{
+            if userID == Auth.auth().currentUser?.uid{
                 //自分の投稿から自分のプロフィールページに渡ってきた場合  => フォローボタンを消す
                 followButton.isHidden = true
             }
             
             //自分のプロフィール画面でない時は、遷移前画面から受け取ったcontentModelの情報を使ってsetUpを行う.
-            setUp(userID: (contentModel?.userID)!)
-            //プロフィール情報を画面に反映
-            imageView.sd_setImage(with: URL(string: (contentModel?.sender![0])!), completed: nil)
-            imageView.layer.cornerRadius = 20
-            imageView.clipsToBounds = true
-            userNameLabel.text = contentModel?.sender![3]
-            profileTextLabel.text = contentModel?.sender![1]
+            setUp(userID: userID)
+ 
             
         }
     }
@@ -105,11 +127,11 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             //もしボタン表記が「フォローをする」だったら、followOrnot == trueにして、相手をフォローする。
             if self.followButton.titleLabel?.text == "フォローをする" {
                 
-                self.sendDBModel.followAction(userID: (self.contentModel?.userID)!, followOrNot: true, contentModel: self.contentModel!)
+                self.sendDBModel.followAction(userID: self.userID, followOrNot: true, profileModel: self.profileModel)
                 
                 //もしボタン表記が「フォローをする」だったら、followOrnot == falseにして、相手のフォローを外す。
             }else if self.followButton.titleLabel?.text == "フォローをやめる"{
-                self.sendDBModel.followAction(userID: (self.contentModel?.userID)!, followOrNot: false, contentModel: self.contentModel!)
+                self.sendDBModel.followAction(userID: self.userID, followOrNot: false, profileModel: self.profileModel)
             }
         }
     }
@@ -169,8 +191,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contentModelArray.count
     }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+  
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 400
     }
     
@@ -198,10 +220,14 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     //プロフィールデータを受信したら、受信内容をもとにviewに反映する。
+    //ここで取得したプロフィールデータを、フォロー関係に回す
     func getProfileData(dataArray: [ProfileModel]) {
         
         imageView.sd_setImage(with: URL(string: dataArray[0].imageURLString!), completed: nil)
         profileTextLabel.text = dataArray[0].profileText
+        userNameLabel.text = dataArray[0].userName
+        
+        profileModel = dataArray[0]
         
     }
     

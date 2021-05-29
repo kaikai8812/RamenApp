@@ -446,7 +446,7 @@
             <objects>
                 <viewController storyboardIdentifier="FFVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="J9J-KA-qok" customClass="FollowAndFollowerViewController" customModule="RamenApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fML-v9-FAK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FPF-gS-Ox5">
@@ -496,12 +496,12 @@
                     <connections>
                         <outlet property="segmentControl" destination="u4m-jc-5PG" id="6VO-vh-XpJ"/>
                         <outlet property="tableView" destination="FPF-gS-Ox5" id="ENj-BV-emL"/>
-                        <segue destination="4eW-lP-Z82" kind="show" id="1Bd-mB-Ct5"/>
+                        <segue destination="bD0-bq-93a" kind="show" id="aj9-Gs-0lt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mJZ-7w-jR1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2907" y="1525"/>
+            <point key="canvasLocation" x="3271" y="1525"/>
         </scene>
         <!--Content Detail View Controller-->
         <scene sceneID="bCK-wj-pau">
@@ -537,7 +537,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWQ-Fa-uZk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3820" y="1525"/>
+            <point key="canvasLocation" x="4613" y="1497"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="8aQ-lE-Hck">
@@ -952,6 +952,7 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="iUz-Va-QVx"/>
+        <segue reference="aj9-Gs-0lt"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="backImage" width="1920" height="1440"/>

@@ -86,18 +86,30 @@ class FollowAndFollowerViewController: UIViewController ,UITableViewDelegate, UI
         return tableView.frame.size.height/5
     }
     
+    
+    //ここを書き換えて、適切な情報をprofileViewControllerに受け渡せば、遷移が可能になる、
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let contentDetailVC = storyboard?.instantiateViewController(withIdentifier: "contentDetailVC") as! ContentDetailViewController
+//        let contentDetailVC = storyboard?.instantiateViewController(withIdentifier: "contentDetailVC") as! ContentDetailViewController
+//
+//        if segmentControl.selectedSegmentIndex == 0 {
+//            contentDetailVC.userID = followArray[indexPath.row].userID!
+//        } else if segmentControl.selectedSegmentIndex == 1{
+//            contentDetailVC.userID = followerArray[indexPath.row].userID!
+//        }
+//
+//        self.navigationController?.pushViewController(contentDetailVC, animated: true)
+        
+        let profileVC = storyboard?.instantiateViewController(identifier: "profileVC") as! ProfileViewController
         
         if segmentControl.selectedSegmentIndex == 0 {
-            contentDetailVC.userID = followArray[indexPath.row].userID!
+            profileVC.listUserID = followArray[indexPath.row].userID!
         } else if segmentControl.selectedSegmentIndex == 1{
-            contentDetailVC.userID = followerArray[indexPath.row].userID!
+            profileVC.listUserID = followerArray[indexPath.row].userID!
         }
         
-        self.navigationController?.pushViewController(contentDetailVC, animated: true)
-        
+        self.navigationController?.pushViewController(profileVC, animated: true)
+
     }
     
     

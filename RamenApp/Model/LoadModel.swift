@@ -106,7 +106,7 @@ class LoadModel {
     //プロフィール画面で、ユーザー別の投稿データを取得する際に使用
     func loadOwnContents(userID:String) {
         
-        db.collection("Users").document(userID).collection("ownContents").order(by: "date").addSnapshotListener { [self] snapShot, error in
+        db.collection("Users").document(userID).collection("ownContents").order(by: "Date").addSnapshotListener { [self] snapShot, error in
             
             self.contentModelArray = []
             if let snapShotDoc = snapShot?.documents{
@@ -134,7 +134,7 @@ class LoadModel {
     func loadProfile(userID:String) {
         
         db.collection("Users").document(userID).addSnapshotListener { snapShot, error in
-            
+            print(userID)
             self.profileModelArray = []
             
             if error != nil{
