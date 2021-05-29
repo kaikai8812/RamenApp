@@ -49,7 +49,8 @@ class ContentsViewController: UIViewController,UICollectionViewDelegate, UIColle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.title = "投稿一覧"
     }
     
     //collectionView更新用デリゲートメソッド(fireStoreから撮ってきたデータを格納した配列がdataArrayに入っている。)

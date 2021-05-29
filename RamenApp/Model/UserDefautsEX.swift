@@ -23,10 +23,6 @@ class UserDefaultsEX: UserDefaults {
         UserDefaults.standard.set(imageURLString, forKey: "imageURLString")
         
     }
-    
-    
-
-    
     //別々に保存されたprofile型の値等を取り出して、Profile型のデータに入れ直した後、profile型のデータで値を返す。
     func codable(key:String) -> ProfileModel {
         

@@ -137,11 +137,9 @@ class CameraViewController: UIViewController,DoneSendCentents {
         HUD.show(.progress)
         HUD.dimsBackground = true
         
-        //プロフィール情報を保存した構造体がアプリ内に保存されているので、それをデコードして持ってくる。
-        
+        //アプリ内に保存した情報を、Profile型にまとめて、profileに代入
         var profile = ProfileModel()
         profile  = userDefaultsEX.codable(key: "profile")
-        
 
         print("kai")
         print(priceTextField.text!)
