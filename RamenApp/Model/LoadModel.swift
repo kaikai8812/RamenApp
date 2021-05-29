@@ -58,17 +58,35 @@ class LoadModel {
     //カテゴリー別でデータを受信するメソッド
     func loadContents(category:String) {
         
-        db.collection(category).order(by: "date").addSnapshotListener { [self] snapShot, error in
+        db.collection(category).order(by: "Date").addSnapshotListener { [self] snapShot, error in
+            
+            print(category)
+            print("デバック")
             
             self.contentModelArray = []
             if let snapShotDoc = snapShot?.documents{
                 
                 for doc in snapShotDoc {
-                    
+                    print(doc.documentID)
                     let data = doc.data()
                     
+                    print((data["userID"] as? String)!)
+                    print((data["userName"] as? String)!)
+                    print((data["image"] as? String)!)
+                    print((data["shopName"] as? String)!)
+                    print((data["sender"] as? [String])!)
+                    print((data["review"] as? String)!)
+                    print((data["price"] as? String)!)
+                    print((data["rate"] as? Double)!)
+                    print((data["Date"] as? String)!)
+                    print("")
+                    
+                    var test = String()
+                    test = data["userName"] as! String
+                    print(test)
+                    
                     //もし必要とするデータがfireStoreに存在し、入手することができたら
-                    if let userID = data["userID"] as? String, let userName = data["userName"] as? String, let image = data["image"] as? String,let shopName = data["shopName"] as? String,let review = data["review"] as? String,let price = data["price"] as? String,let sender = data["dender"] as? [String],let rate = data["rate"] as? Double, let date = data["date"] as? Date{
+                    if let userID = (data["userID"])! as? String, let userName = (data["userName"])! as? String, let image = (data["image"])! as? String,let shopName = (data["shopName"])! as? String,let review = (data["review"])! as? String,let price = (data["price"])! as? String,let sender = (data["sender"])! as? [String],let rate = (data["rate"])! as? Double, let date = (data["Date"])! as? String{
                         
                         //データが入ったモデルをインスタンス化
                         let contentModel = ContentModel(userName: userName, userID: userID, price: price, shopName: shopName, review: review, imageURLString: image, rate: rate, sender: sender)
@@ -88,7 +106,7 @@ class LoadModel {
     //プロフィール画面で、ユーザー別の投稿データを取得する際に使用
     func loadOwnContents(userID:String) {
         
-        db.collection("Users").document(userID).collection("ownContents").order(by: "date").addSnapshotListener { [self] snapShot, error in
+        db.collection("Users").document(userID).collection("ownContents").order(by: "Date").addSnapshotListener { [self] snapShot, error in
             
             self.contentModelArray = []
             if let snapShotDoc = snapShot?.documents{
@@ -98,7 +116,7 @@ class LoadModel {
                     let data = doc.data()
                     
                     //もし必要とするデータがfireStoreに存在し、入手することができたら
-                    if let userID = data["userID"] as? String, let userName = data["userName"] as? String, let image = data["image"] as? String,let shopName = data["shopName"] as? String,let review = data["review"] as? String,let price = data["price"] as? String,let sender = data["dender"] as? [String],let rate = data["rate"] as? Double, let date = data["date"] as? Date{
+                    if let userID = data["userID"] as? String, let userName = data["userName"] as? String, let image = data["image"] as? String,let shopName = data["shopName"] as? String,let review = data["review"] as? String,let price = data["price"] as? String,let sender = data["sender"] as? [String],let rate = data["rate"] as? Double, let date = data["Date"] as? String{
                         
                         //データが入ったモデルをインスタンス化
                         let contentModel = ContentModel(userName: userName, userID: userID, price: price, shopName: shopName, review: review, imageURLString: image, rate: rate, sender: sender)
@@ -116,7 +134,7 @@ class LoadModel {
     func loadProfile(userID:String) {
         
         db.collection("Users").document(userID).addSnapshotListener { snapShot, error in
-            
+            print(userID)
             self.profileModelArray = []
             
             if error != nil{
@@ -151,6 +169,8 @@ class LoadModel {
             
             if let snapShotDoc = snapShot?.documents{
                 
+                self.followerModelArray = []
+                
                 for doc in snapShotDoc {
                     
                     let data = doc.data()
@@ -169,7 +189,7 @@ class LoadModel {
                         }
                     }
                 }
-                self.getFollowersDataProtocol?.getFollowersData(followersArray: self.followerModelArray!, exist: self.ownFollowOrNot!)
+                self.getFollowersDataProtocol?.getFollowersData(followersArray: self.followerModelArray!, exist: self.ownFollowOrNot ?? false)
             }
             
         }
@@ -187,6 +207,8 @@ class LoadModel {
             }
             
             if let snapShotDoc = snapShot?.documents{
+                
+                self.followModelArray = []
                 
                 for doc in snapShotDoc {
                     

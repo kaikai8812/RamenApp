@@ -41,7 +41,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yhe-lf-Kei" customClass="CosmosView" customModule="Cosmos">
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yhe-lf-Kei" customClass="CosmosView" customModule="Cosmos">
                         <rect key="frame" x="224" y="243" width="170" height="76"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -64,4 +64,9 @@
             <point key="canvasLocation" x="131.8840579710145" y="129.91071428571428"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="Yhe-lf-Kei">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+    </designables>
 </document>

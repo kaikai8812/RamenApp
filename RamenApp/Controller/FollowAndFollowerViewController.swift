@@ -28,6 +28,9 @@ class FollowAndFollowerViewController: UIViewController ,UITableViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         //遷移元のタップした箇所によって、変化
         if tag == 1 {
             segmentControl.selectedSegmentIndex = 0
@@ -36,6 +39,7 @@ class FollowAndFollowerViewController: UIViewController ,UITableViewDelegate, UI
         }
         
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return    1
     }
@@ -78,22 +82,29 @@ class FollowAndFollowerViewController: UIViewController ,UITableViewDelegate, UI
         return cell
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.size.height/5
     }
     
+    
+    //ここを書き換えて、適切な情報をprofileViewControllerに受け渡せば、遷移が可能になる、
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let contentDetailVC = storyboard?.instantiateViewController(withIdentifier: "contentDetailVC") as! ContentDetailViewController
+        
+        let profileVC = storyboard?.instantiateViewController(identifier: "profileVC") as! ProfileViewController
         
         if segmentControl.selectedSegmentIndex == 0 {
-            contentDetailVC.userID = followArray[indexPath.row].userID
+            profileVC.listUserID = followArray[indexPath.row].userID!
         } else if segmentControl.selectedSegmentIndex == 1{
-            contentDetailVC.userID = followerArray[indexPath.row].userID
+            profileVC.listUserID = followerArray[indexPath.row].userID!
         }
         
-        self.navigationController?.pushViewController(contentDetailVC, animated: true)
+//        if self.tabBarController?.selectedIndex == 2 {
+//            self.tabBarController?.selectedIndex = 0
+//        }
         
+        self.navigationController?.pushViewController(profileVC, animated: true)
+
     }
     
     

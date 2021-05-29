@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct ProfileModel:Codable {
+//Data型で保存ができるように、「Coadable」プロトコルに準拠させる。
+struct ProfileModel{
+    
     
     var userName:String?
     var userID:String?
