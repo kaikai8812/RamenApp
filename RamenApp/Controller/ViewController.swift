@@ -16,8 +16,8 @@ class ViewController: AMPagerTabsViewController {
         
         settings.tabBackgroundColor = #colorLiteral(red: 0.2819149196, green: 0.7462226748, blue: 0.6821211576, alpha: 1)
         settings.tabButtonColor = #colorLiteral(red: 0.2819149196, green: 0.7462226748, blue: 0.6821211576, alpha: 1)
-        settings.tabHeight = 100
-        tabFont = UIFont.systemFont(ofSize: 17, weight: .bold)
+        settings.tabHeight = 120
+        tabFont = UIFont.systemFont(ofSize: 18, weight: .bold)
         isTabButtonShouldFit = true
         self.viewControllers = getTabs()
         
@@ -37,7 +37,7 @@ class ViewController: AMPagerTabsViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = false
         
     }
     
@@ -45,7 +45,7 @@ class ViewController: AMPagerTabsViewController {
         
         var vcArray = [UIViewController]()
         
-        for i in 0..<5 {
+        for i in 0..<4 {
             
             let viewController = self.storyboard?.instantiateViewController(withIdentifier: "view1") as! ContentsViewController
            

@@ -13,11 +13,55 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
+        let storyboard:UIStoryboard = self.grabStoryboard()
+                                
+        if let window = window{
+        window.rootViewController = storyboard.instantiateInitialViewController() as UIViewController?
+        }
+
+        self.window?.makeKeyAndVisible()
+        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
+    
+    func grabStoryboard() -> UIStoryboard{
+                  
+                  var storyboard = UIStoryboard()
+                  let height = UIScreen.main.bounds.size.height
+                  if height == 896 {
+                      storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    print("Main起動")
+                    //iPhoneX,XS,11pro
+                     
+                  }else if height == 736 {
+                      storyboard = UIStoryboard(name: "iPhone8plus", bundle: nil)
+                    print("Main起動")
+                      //iPhone8Plus
+                  }else if height == 812{
+                      storyboard = UIStoryboard(name: "iPhone11Pro", bundle: nil)
+                    print("Main起動")
+                       //iPhoneX,XS,11pro
+                  }else if height == 667{
+                      storyboard = UIStoryboard(name: "se", bundle: nil)
+                    print("se起動")
+                       //iPhonese
+                  }else if height == 1112{
+                      
+                      switch UIDevice.current.model {
+                      case "iPnone" :
+                      storyboard = UIStoryboard(name: "se", bundle: nil)
+                          break
+                      case "iPad" :
+                      storyboard = UIStoryboard(name: "iPad", bundle: nil)
+                      print("iPad")
+                          break
+                      default:
+                          break
+                      }
+                  }
+                  return storyboard
+          }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
