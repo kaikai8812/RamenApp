@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //キーボードの挙動処理
         IQKeyboardManager.shared.enable = true
         
-        //ログアウト処理
+//        //ログアウト処理
 //        let fireBaseAuth = Auth.auth()
 //        do {
 //            try fireBaseAuth.signOut()

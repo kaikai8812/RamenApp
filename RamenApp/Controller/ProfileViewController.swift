@@ -181,11 +181,15 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contentModelArray.count
+        print(contentModelArray)
+        print(contentModelArray)
     }
   
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 400
+        return 300
     }
+    
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -196,9 +200,12 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         cell.shopNameLabel.text = contentModelArray[indexPath.row].shopName
         cell.reviewLabel.text = contentModelArray[indexPath.row].review
         cell.reviewRatingView.rating = contentModelArray[indexPath.row].rate!
+        cell.frame.size.width = view.frame.size.width
         
         return cell
     }
+    
+
     
     
     

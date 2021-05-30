@@ -13,11 +13,41 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
+        let storyboard:UIStoryboard = self.grabStoryboard()
+                                
+        if let window = window{
+        window.rootViewController = storyboard.instantiateInitialViewController() as UIViewController?
+        }
+
+        self.window?.makeKeyAndVisible()
+        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
+    
+    func grabStoryboard() -> UIStoryboard{
+                  
+                  var storyboard = UIStoryboard()
+                  let height = UIScreen.main.bounds.size.height
+                  if height == 896 {
+                      storyboard = UIStoryboard(name: "Iphone11", bundle: nil) //Iphone12,IPhone11ProMax
+                    print("Iphone11起動")
+                
+                  }else if height == 926 {
+                      storyboard = UIStoryboard(name: "Iphone12Pro", bundle: nil) //Iphone12ProMax
+                    print("Iphone12ProMax")
+                  }else if height == 736 {
+                      storyboard = UIStoryboard(name: "IPhone8plus", bundle: nil) //Iphone8Plus
+                    print("Iphone8Plus")
+                  }else if height == 812{
+                      storyboard = UIStoryboard(name: "Iphone12Mini", bundle: nil) //Iphone12Mini用
+                    print("IPhone12Mini")
+                  }else if height == 667{
+                      storyboard = UIStoryboard(name: "se", bundle: nil)  //IphoneSE用
+                    print("se起動")
+                  }
+                  return storyboard
+          }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

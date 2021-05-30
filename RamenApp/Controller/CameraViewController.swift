@@ -131,9 +131,10 @@ class CameraViewController: UIViewController,DoneSendCentents {
     
     
     
+ 
+        
     @IBAction func send(_ sender: Any) {
         
-        //ロード画面の表示
         HUD.show(.progress)
         HUD.dimsBackground = true
         
@@ -156,7 +157,11 @@ class CameraViewController: UIViewController,DoneSendCentents {
             //FireStoreに、投稿情報を保存する。
             sendDBModel.sendContentDB(price: priceTextField.text!, category: categoryString, shopName: shopNameTextField.text!, review: reviewTextView.text!, userName: (profile.userName)!, imageData: (cotentImageView.image?.jpegData(compressionQuality: 0.1))!, sender: profile, rate: reviewCosmosview.rating)
             
-        }
+        
+    }
+    //ロード画面の表示
+       
+        
     }
     
     func checkDoneContents() {
