@@ -22,11 +22,14 @@
 		6C44303D265C98D000B9AFCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C44303B265C98D000B9AFCB /* Main.storyboard */; };
 		6C44303F265C98D100B9AFCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C44303E265C98D100B9AFCB /* Assets.xcassets */; };
 		6C443042265C98D100B9AFCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C443040265C98D100B9AFCB /* LaunchScreen.storyboard */; };
+		6C4CB0322663AF9400E5FDFA /* Iphone12Mini.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C4CB0312663AF9400E5FDFA /* Iphone12Mini.storyboard */; };
+		6C7FB1632663A07B009CDA6F /* Iphone11.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C7FB1622663A07B009CDA6F /* Iphone11.storyboard */; };
 		6CA6C3FA2660631C000BE861 /* FollowAndFollowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA6C3F92660631C000BE861 /* FollowAndFollowerViewController.swift */; };
 		6CA6C3FC266078DC000BE861 /* ContentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA6C3FB266078DC000BE861 /* ContentDetailViewController.swift */; };
 		6CA6C3FE26610A6F000BE861 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA6C3FD26610A6F000BE861 /* SignInViewController.swift */; };
 		6CA6C40026611316000BE861 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA6C3FF26611316000BE861 /* TabBarController.swift */; };
 		6CAB95AA266271F000ACCCB6 /* se.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CAB95A9266271F000ACCCB6 /* se.storyboard */; };
+		6CB4F2012663B6FD00A0C29F /* Iphone12Pro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB4F2002663B6FD00A0C29F /* Iphone12Pro.storyboard */; };
 		6CC8E32C265E1A870006E377 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC8E32B265E1A870006E377 /* Constants.swift */; };
 		6CC8E32E265E59D50006E377 /* CheckModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC8E32D265E59D50006E377 /* CheckModel.swift */; };
 		6CC8E330265E77760006E377 /* LoadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC8E32F265E77760006E377 /* LoadModel.swift */; };
@@ -57,11 +60,14 @@
 		6C44303E265C98D100B9AFCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C443041265C98D100B9AFCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C443043265C98D100B9AFCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C4CB0312663AF9400E5FDFA /* Iphone12Mini.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Iphone12Mini.storyboard; sourceTree = "<group>"; };
+		6C7FB1622663A07B009CDA6F /* Iphone11.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Iphone11.storyboard; sourceTree = "<group>"; };
 		6CA6C3F92660631C000BE861 /* FollowAndFollowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowAndFollowerViewController.swift; sourceTree = "<group>"; };
 		6CA6C3FB266078DC000BE861 /* ContentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailViewController.swift; sourceTree = "<group>"; };
 		6CA6C3FD26610A6F000BE861 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		6CA6C3FF26611316000BE861 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		6CAB95A9266271F000ACCCB6 /* se.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = se.storyboard; sourceTree = "<group>"; };
+		6CB4F2002663B6FD00A0C29F /* Iphone12Pro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Iphone12Pro.storyboard; sourceTree = "<group>"; };
 		6CC8E32B265E1A870006E377 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6CC8E32D265E59D50006E377 /* CheckModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckModel.swift; sourceTree = "<group>"; };
 		6CC8E32F265E77760006E377 /* LoadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadModel.swift; sourceTree = "<group>"; };
@@ -145,6 +151,9 @@
 				6C014CFC265F713900224290 /* ContentsCell.swift */,
 				6C014CFD265F713900224290 /* ContentsCell.xib */,
 				6CAB95A9266271F000ACCCB6 /* se.storyboard */,
+				6C7FB1622663A07B009CDA6F /* Iphone11.storyboard */,
+				6C4CB0312663AF9400E5FDFA /* Iphone12Mini.storyboard */,
+				6CB4F2002663B6FD00A0C29F /* Iphone12Pro.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,11 +260,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CB4F2012663B6FD00A0C29F /* Iphone12Pro.storyboard in Resources */,
 				6CAB95AA266271F000ACCCB6 /* se.storyboard in Resources */,
 				6C443042265C98D100B9AFCB /* LaunchScreen.storyboard in Resources */,
 				6C014CFF265F713900224290 /* ContentsCell.xib in Resources */,
 				6CDB8463265CF3E4008C83A0 /* GoogleService-Info.plist in Resources */,
+				6C4CB0322663AF9400E5FDFA /* Iphone12Mini.storyboard in Resources */,
 				6C44303F265C98D100B9AFCB /* Assets.xcassets in Resources */,
+				6C7FB1632663A07B009CDA6F /* Iphone11.storyboard in Resources */,
 				6C44303D265C98D000B9AFCB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -30,35 +30,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                   var storyboard = UIStoryboard()
                   let height = UIScreen.main.bounds.size.height
                   if height == 896 {
-                      storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    print("Main起動")
-                    //iPhoneX,XS,11pro
-                     
+                      storyboard = UIStoryboard(name: "Iphone11", bundle: nil) //Iphone12,IPhone11ProMax
+                    print("Iphone11起動")
+                
+                  }else if height == 926 {
+                      storyboard = UIStoryboard(name: "Iphone12Pro", bundle: nil) //Iphone12ProMax
+                    print("Iphone12ProMax")
                   }else if height == 736 {
-                      storyboard = UIStoryboard(name: "iPhone8plus", bundle: nil)
-                    print("Main起動")
-                      //iPhone8Plus
+                      storyboard = UIStoryboard(name: "IPhone8plus", bundle: nil) //Iphone8Plus
+                    print("Iphone8Plus")
                   }else if height == 812{
-                      storyboard = UIStoryboard(name: "iPhone11Pro", bundle: nil)
-                    print("Main起動")
-                       //iPhoneX,XS,11pro
+                      storyboard = UIStoryboard(name: "Iphone12Mini", bundle: nil) //Iphone12Mini用
+                    print("IPhone12Mini")
                   }else if height == 667{
-                      storyboard = UIStoryboard(name: "se", bundle: nil)
+                      storyboard = UIStoryboard(name: "se", bundle: nil)  //IphoneSE用
                     print("se起動")
-                       //iPhonese
-                  }else if height == 1112{
-                      
-                      switch UIDevice.current.model {
-                      case "iPnone" :
-                      storyboard = UIStoryboard(name: "se", bundle: nil)
-                          break
-                      case "iPad" :
-                      storyboard = UIStoryboard(name: "iPad", bundle: nil)
-                      print("iPad")
-                          break
-                      default:
-                          break
-                      }
                   }
                   return storyboard
           }
