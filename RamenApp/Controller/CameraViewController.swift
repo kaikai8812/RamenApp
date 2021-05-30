@@ -26,7 +26,7 @@ class CameraViewController: UIViewController,DoneSendCentents {
     
     
     //選択されたカテゴリーを保持するため。
-    var categoryString = String()
+    var categoryString:String?
     
     //モデルのインスタンス化
     var userDefaultsEX = UserDefaultsEX()
@@ -106,7 +106,7 @@ class CameraViewController: UIViewController,DoneSendCentents {
     //カテゴリーを選択する(アラートを表示)
     @IBAction func showCategory(_ sender: Any) {
         
-        let alert = EMAlertController(title: "この中で", message: "選択してね")
+        let alert = EMAlertController(title: "カテゴリーを", message: "選択してください")
         
         for i in 0 ..< Constants.menuArray.count {
             
@@ -135,31 +135,29 @@ class CameraViewController: UIViewController,DoneSendCentents {
         
     @IBAction func send(_ sender: Any) {
         
+        if cotentImageView.image == nil || priceTextField.text?.isEmpty == true || shopNameTextField.text?.isEmpty == true || reviewTextView.text?.isEmpty == true || categoryString == nil {
+            
+            checkAlert()
+            return
+            //アラートを表示させ、処理を止める
+        }
+            
+        
         HUD.show(.progress)
         HUD.dimsBackground = true
         
         //アプリ内に保存した情報を、Profile型にまとめて、profileに代入
         var profile = ProfileModel()
         profile  = userDefaultsEX.codable(key: "profile")
-
-        print("kai")
-        print(priceTextField.text!)
-        print(categoryString)
-        print(shopNameTextField.text!)
-        print(reviewTextView.text!)
-        print(profile.userName)
-        print(profile.userID)
-        print(reviewCosmosview.rating)
-        print("kai")
-        
         if shopNameTextField.text != nil && shopNameTextField.text != nil && categoryString != nil && reviewTextView.text != nil {
             
             //FireStoreに、投稿情報を保存する。
-            sendDBModel.sendContentDB(price: priceTextField.text!, category: categoryString, shopName: shopNameTextField.text!, review: reviewTextView.text!, userName: (profile.userName)!, imageData: (cotentImageView.image?.jpegData(compressionQuality: 0.1))!, sender: profile, rate: reviewCosmosview.rating)
+            sendDBModel.sendContentDB(price: priceTextField.text!, category: categoryString!, shopName: shopNameTextField.text!, review: reviewTextView.text!, userName: (profile.userName)!, imageData: (cotentImageView.image?.jpegData(compressionQuality: 0.1))!, sender: profile, rate: reviewCosmosview.rating)
             
+            //投稿に成功したら、アラートを表示させる。
+            successAlert()
         
-    }
-    //ロード画面の表示
+        }
        
         
     }
@@ -172,5 +170,24 @@ class CameraViewController: UIViewController,DoneSendCentents {
         loadModel.loadContents(category: Constants.menuArray[0])
         
     }
+    //成功アラートの作成
+    func successAlert() {
+        let alert = EMAlertController(icon: UIImage(named: "check"), title: "投稿完了", message: "投稿に成功しました！")
+        let doneAction = EMAlertAction(title: "OK", style: .normal)
+        alert.addAction(doneAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func checkAlert (){
+        let alert = EMAlertController(icon: UIImage(named: "sorry"),title: "入力に漏れがあります！", message: "全ての項目が入力できているか、確認してください。")
+        let doneAction = EMAlertAction(title: "OK", style: .normal)
+        alert.addAction(doneAction)
+        present(alert, animated: true, completion: nil)
+    }
+
+
     
 }
+
+
+

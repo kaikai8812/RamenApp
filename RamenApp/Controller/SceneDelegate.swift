@@ -22,9 +22,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         self.window?.makeKeyAndVisible()
         
-        guard let _ = (scene as? UIWindowScene) else { return }
+     guard let _ = (scene as? UIWindowScene) else { return }
     }
     
+    //画面サイズによって、レイアウト調整
     func grabStoryboard() -> UIStoryboard{
                   
                   var storyboard = UIStoryboard()

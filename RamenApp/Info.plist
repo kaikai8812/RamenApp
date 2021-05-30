@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>アルバムを使用します！！</string>
+	<string>カメラとアルバムを使用します。よろしいですか？</string>
 	<key>NSCameraUsageDescription</key>
-	<string>カメラを使用します！</string>
+	<string>カメラとアルバムを使用します。よろしいですか？</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
