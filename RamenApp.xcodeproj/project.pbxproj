@@ -172,12 +172,12 @@
 				6C443039265C98D000B9AFCB /* ViewController.swift */,
 				6CDB8466265D97EE008C83A0 /* ContentsViewController.swift */,
 				6CDB8468265D99CD008C83A0 /* CreateUserViewController.swift */,
-				6CDB8470265DE423008C83A0 /* CameraViewController.swift */,
 				6C014CF6265F2AFA00224290 /* DetailViewController.swift */,
 				6C014CF8265F556F00224290 /* WebViewController.swift */,
 				6C014CFA265F647000224290 /* ProfileViewController.swift */,
 				6CA6C3F92660631C000BE861 /* FollowAndFollowerViewController.swift */,
 				6CA6C3FB266078DC000BE861 /* ContentDetailViewController.swift */,
+				6CDB8470265DE423008C83A0 /* CameraViewController.swift */,
 				6CA6C3FD26610A6F000BE861 /* SignInViewController.swift */,
 				6CA6C3FF26611316000BE861 /* TabBarController.swift */,
 			);

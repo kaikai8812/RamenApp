@@ -189,6 +189,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         return 300
     }
     
+
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ContentsCell
@@ -198,9 +200,12 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         cell.shopNameLabel.text = contentModelArray[indexPath.row].shopName
         cell.reviewLabel.text = contentModelArray[indexPath.row].review
         cell.reviewRatingView.rating = contentModelArray[indexPath.row].rate!
+        cell.frame.size.width = view.frame.size.width
         
         return cell
     }
+    
+
     
     
     

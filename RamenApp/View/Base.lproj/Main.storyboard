@@ -647,8 +647,8 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wmR-vM-kN9">
                                 <rect key="frame" x="146" y="538" width="191" height="108"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -681,20 +681,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgK-Vk-20t">
-                                <rect key="frame" x="336" y="28" width="64" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="send"/>
-                                <connections>
-                                    <action selector="send:" destination="5hD-uM-ZY6" eventType="touchUpInside" id="9qu-9h-GTg"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WQs-yY-VGC">
                                 <rect key="frame" x="146" y="419" width="191" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8IE-Zw-XJs">
+                                <rect key="frame" x="325" y="42" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="send"/>
+                                <connections>
+                                    <action selector="send:" destination="5hD-uM-ZY6" eventType="touchUpInside" id="vvX-mc-dzA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7sb-ql-Vsn"/>
                         <color key="backgroundColor" red="0.72623748300500934" green="1" blue="0.97482188721145413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -888,6 +888,7 @@
                                 <rect key="frame" x="0.0" y="457" width="414" height="439"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" red="0.36626398560000001" green="0.98312121630000004" blue="0.94205218550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="313" id="g20-9O-JeJ">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="313"/>
@@ -895,7 +896,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g20-9O-JeJ" id="hAa-LG-pTU">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="313"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -988,6 +991,17 @@
             <point key="canvasLocation" x="2705.7971014492755" y="-627.45535714285711"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="334-JJ-ZIm">
+            <size key="intrinsicContentSize" width="260" height="48"/>
+        </designable>
+        <designable name="bgJ-uR-75u">
+            <size key="intrinsicContentSize" width="145" height="25"/>
+        </designable>
+        <designable name="jgt-VO-tfv">
+            <size key="intrinsicContentSize" width="350" height="66"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="gYY-b8-52n"/>
         <segue reference="Jdh-bx-tyY"/>
