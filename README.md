@@ -107,7 +107,7 @@
     
   ## ポートフォリオ(Ruby on Rails)
   こちらが、ポートフォリオサイトのURLになります。 <br>
-  https://aoyama-portfolio.work/troubles
+  https://aoyama-portfolio.work/troubles <br>
   こちらが、ポートフォリオを作成したgithubになります。 <br>
   https://github.com/kaikai8812/Empathy
   
