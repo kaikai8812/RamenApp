@@ -66,6 +66,7 @@ class FollowAndFollowerViewController: UIViewController ,UITableViewDelegate, UI
         let userImageView = cell.contentView.viewWithTag(1) as! UIImageView
         let userNameLabel = cell.contentView.viewWithTag(2) as! UILabel
         
+        
         //セグメントの値でフォローかフォロワーどちらを表示させるかを判別
         
         //フォローリストを表示
@@ -99,9 +100,6 @@ class FollowAndFollowerViewController: UIViewController ,UITableViewDelegate, UI
             profileVC.listUserID = followerArray[indexPath.row].userID!
         }
         
-//        if self.tabBarController?.selectedIndex == 2 {
-//            self.tabBarController?.selectedIndex = 0
-//        }
         
         self.navigationController?.pushViewController(profileVC, animated: true)
 
