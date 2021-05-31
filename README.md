@@ -45,17 +45,13 @@
 ## レイアウトに関して
 
 - 画面サイズ別にStoryBoard別でレイアウトを作成することで、以下の画面サイズに対応しました。
-  - IPhone12 ProMax
-  - IPhone12 Mini
-  - IPhone12 
-  - IPhone11 ProMax
-  - IPhone11 
-  - IPhone8 Plus
-  - IPhone SE(第２世代)
-
-IPhone12 ProMax / iPhone12 / IPhone12 Mini / IPhone11 / IPhone11 ProMax / IPhone8 Plus / IPhone SE(第２世代)
-  
-  
+  - iPhone12 ProMax
+  - iPhone12 Mini
+  - iPhone12 
+  - iPhone11 ProMax
+  - iPhone11 
+  - iPhone8 Plus
+  - iPhone SE(第２世代)
     
     
 ## 今後追加予定の機能
