@@ -16,3 +16,25 @@
 ## 使用ライブラリ
 - Firebase
     ---- firebaseの各機能を使用するために導入
+- Firebase/Firestore
+    ---- 投稿データ、ユーザーデータ、フォローフォロワーデータのデータベースとして使用
+- Firebase/Auth
+    ---- ユーザー認証のため使用
+- Firebase/Storage 
+    ---- ラーメン投稿画像、およびプロフィール画像の画像データ保存のため使用
+- EMAlertController
+    ---- 各種アラート表示のため使用
+- SDWebImage 
+    ---- URLから画像を取得するために使用
+- AMPagerTabs
+    ---- 上部タブを用いて、カテゴリー別に投稿を表示するために使用
+- YPImagePicker
+    ---- フィルター付きカメラを使用するために使用
+- Cosmos
+    ----  投稿のレーティング機能のため使用
+- IQKeyboardManagerSwift
+    ---- キーボードの表示時にテキストフィールドが隠れないようにするために使用
+- PKHUD
+    ---- ローディング画面表示のために使用
+- SSSpinnerButton 
+    ---- フォローボタンのアニメーションのために使用
