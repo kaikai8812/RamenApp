@@ -3,9 +3,14 @@
 
 ## 学習内容
 企業課題にてSwiftを用いたアプリを作成するため、まずはSwiftの基礎を固めるために、Udemyの以下の講座を利用して学習を行いました。
-  https://www.udemy.com/course/ios14-iphone-ios-boot-camp/
-  
-あいう
+  https://www.udemy.com/course/ios14-iphone-ios-boot-camp/ 
+ 
+ また、学習は、以下のリポジトリで行いました。
+ https://github.com/kaikai8812/swift-practice
+ 
+ 以上の講座を用いて、swiftの基礎的な文法、MVCモデルを用いたアプリの作成、storyboardを用いたアプリの作成、各種APIを用いたJSON解析やXML解析の使用方法を学びました。
+ 
+ 
   
   
 
