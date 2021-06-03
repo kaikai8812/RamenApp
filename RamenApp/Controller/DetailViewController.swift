@@ -99,6 +99,15 @@ class DetailViewController: UIViewController, UITableViewDelegate,UITableViewDat
         
         //ハッシュタグをタップした際に、対応したハッシュタグの投稿が表示される画面へ遷移
         
+        reviewTextLabel.handleHashtagTap { (hashtag) in
+            
+            let hashVC = self.storyboard?.instantiateViewController(identifier: "hashVC") as! HashTagViewController
+            
+            hashVC.hashTag = hashtag
+            self.navigationController?.pushViewController(hashVC, animated: true)
+            
+        }
+        
         
         
         return cell

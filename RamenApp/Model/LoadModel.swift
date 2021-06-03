@@ -96,7 +96,9 @@ class LoadModel {
     //ハッシュタグ別に投稿情報を受信する。
     func loadHashTagContents(HashTag:String) {
         
-        db.collection(HashTag).order(by: "Date").addSnapshotListener { snapShot, error in
+        print("#" + "\(HashTag)")
+        print("")
+        db.collection("#" + "\(HashTag)").order(by: "Date").addSnapshotListener { snapShot, error in
             
             self.contentModelArray = []
             if let snapShotDoc = snapShot?.documents{
@@ -110,6 +112,8 @@ class LoadModel {
                         
                         //配列に代入
                         self.contentModelArray.append(contentModel)
+                        print(self.contentModelArray.count)
+                        print("")
                         
                     }
                 }
