@@ -445,14 +445,13 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="感想文" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dZ6-M1-DyJ">
-                                                    <rect key="frame" x="217" y="200" width="168" height="80"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="感想文 + ハッシュタグ" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Ynb-DC-nxE" customClass="ActiveLabel" customModule="ActiveLabel">
+                                                    <rect key="frame" x="217" y="188" width="131" height="98"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.72623748300000002" green="1" blue="0.97482188719999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
@@ -1033,7 +1032,127 @@
             </objects>
             <point key="canvasLocation" x="2705.7971014492755" y="-627.45535714285711"/>
         </scene>
+        <!--Contents View Controller-->
+        <scene sceneID="Aga-2W-QuQ">
+            <objects>
+                <viewController storyboardIdentifier="view1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1md-YL-7eT" customClass="ContentsViewController" customModule="RamenApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="805-Hw-YIC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1Mf-bD-WUa">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="823"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1Mf-bD-WUa" secondAttribute="height" multiplier="414:823" id="DI8-Gr-5wT"/>
+                                    <constraint firstAttribute="height" constant="823" id="Emx-eZ-BKw"/>
+                                    <constraint firstAttribute="width" constant="414" id="RvS-lK-en3"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fvd-nM-vlV">
+                                    <size key="itemSize" width="198" height="286"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <view key="backgroundView" contentMode="scaleToFill" id="2UB-1a-s6N">
+                                    <rect key="frame" x="0.0" y="-44" width="414" height="823"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="qa1-29-BU1">
+                                        <rect key="frame" x="0.0" y="0.0" width="198" height="286"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0c0-wJ-hSi">
+                                            <rect key="frame" x="0.0" y="0.0" width="198" height="286"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YcK-6c-Cll">
+                                                    <rect key="frame" x="8" y="8" width="182" height="270"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="182" id="09F-Ay-McG"/>
+                                                        <constraint firstAttribute="height" constant="270" id="L5C-KR-yhN"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <view alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ehp-Cz-Edz">
+                                                    <rect key="frame" x="36" y="158" width="126" height="31"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rh4-ST-37F">
+                                                            <rect key="frame" x="0.0" y="5" width="126" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.1532189548" green="0.12358095500000001" blue="0.15320593120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="31" id="aSm-4o-4QO"/>
+                                                        <constraint firstAttribute="width" constant="126" id="opC-bn-HdP"/>
+                                                    </constraints>
+                                                </view>
+                                                <view tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dFk-tA-B0g" customClass="CosmosView" customModule="Cosmos">
+                                                    <rect key="frame" x="33" y="199" width="132" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                            <real key="value" value="25"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YcK-6c-Cll" firstAttribute="top" secondItem="0c0-wJ-hSi" secondAttribute="top" constant="8" id="5AM-oq-V3O"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ehp-Cz-Edz" secondAttribute="trailing" constant="36" id="8L5-RC-ot5"/>
+                                                <constraint firstItem="Ehp-Cz-Edz" firstAttribute="leading" secondItem="0c0-wJ-hSi" secondAttribute="leading" constant="36" id="EFm-3Z-DJN"/>
+                                                <constraint firstAttribute="trailing" secondItem="YcK-6c-Cll" secondAttribute="trailing" constant="8" id="MtT-Vs-693"/>
+                                                <constraint firstItem="YcK-6c-Cll" firstAttribute="leading" secondItem="0c0-wJ-hSi" secondAttribute="leading" constant="8" id="gdh-tX-MOz"/>
+                                                <constraint firstAttribute="bottom" secondItem="YcK-6c-Cll" secondAttribute="bottom" constant="8" id="t3f-vN-lg6"/>
+                                                <constraint firstItem="Ehp-Cz-Edz" firstAttribute="top" secondItem="0c0-wJ-hSi" secondAttribute="top" constant="158" id="xfL-Uz-jqY"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="198" height="286"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8Fp-oE-YNc"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1Mf-bD-WUa" firstAttribute="leading" secondItem="8Fp-oE-YNc" secondAttribute="leading" id="2MC-iZ-XEy"/>
+                            <constraint firstItem="1Mf-bD-WUa" firstAttribute="trailing" secondItem="8Fp-oE-YNc" secondAttribute="trailing" id="4bW-aY-wL3"/>
+                            <constraint firstItem="1Mf-bD-WUa" firstAttribute="top" secondItem="805-Hw-YIC" secondAttribute="top" id="Tip-6A-rmG"/>
+                            <constraint firstItem="8Fp-oE-YNc" firstAttribute="bottom" secondItem="1Mf-bD-WUa" secondAttribute="bottom" constant="39" id="vLu-iK-ZL2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="z7m-5O-M94"/>
+                    <connections>
+                        <outlet property="collectionView" destination="1Mf-bD-WUa" id="mvQ-gC-Hvd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rqH-y7-srw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5316" y="74"/>
+        </scene>
     </scenes>
+    <designables>
+        <designable name="7BW-vo-1Ko">
+            <size key="intrinsicContentSize" width="270" height="50"/>
+        </designable>
+        <designable name="Ynb-DC-nxE">
+            <size key="intrinsicContentSize" width="175" height="21"/>
+        </designable>
+        <designable name="dFk-tA-B0g">
+            <size key="intrinsicContentSize" width="145" height="25"/>
+        </designable>
+        <designable name="fKi-6Q-0I3">
+            <size key="intrinsicContentSize" width="145" height="25"/>
+        </designable>
+        <designable name="mjp-dg-Xjg">
+            <size key="intrinsicContentSize" width="260" height="48"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="fGy-nP-rne"/>
         <segue reference="v4f-Ag-7yy"/>
