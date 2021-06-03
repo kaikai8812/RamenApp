@@ -135,16 +135,19 @@ class CameraViewController: UIViewController,DoneSendCentents {
         
     @IBAction func send(_ sender: Any) {
         
+        //未入力項目があった場合は、処理をストップする。
         if cotentImageView.image == nil || priceTextField.text?.isEmpty == true || shopNameTextField.text?.isEmpty == true || reviewTextView.text?.isEmpty == true || categoryString == nil {
             
             checkAlert()
             return
             //アラートを表示させ、処理を止める
         }
-            
+        
         
         HUD.show(.progress)
         HUD.dimsBackground = true
+        
+        
         
         //アプリ内に保存した情報を、Profile型にまとめて、profileに代入
         var profile = ProfileModel()
@@ -153,6 +156,26 @@ class CameraViewController: UIViewController,DoneSendCentents {
             
             //FireStoreに、投稿情報を保存する。
             sendDBModel.sendContentDB(price: priceTextField.text!, category: categoryString!, shopName: shopNameTextField.text!, review: reviewTextView.text!, userName: (profile.userName)!, imageData: (cotentImageView.image?.jpegData(compressionQuality: 0.1))!, sender: profile, rate: reviewCosmosview.rating)
+            
+            
+            //追加項目、ハッシュタグが存在した場合は、ハッシュタグ別にfireStoreにデータを保存する記述
+            
+            let hashTagText = reviewTextView.text as NSString?
+                    do{
+                        let regex = try NSRegularExpression(pattern: "#\\S+", options: [])
+                        //見つけたハッシュタグを、for文で回しているっぽい・
+                        for match in regex.matches(in: hashTagText! as String, options: [], range: NSRange(location: 0, length: hashTagText!.length)) {
+                                
+                            //sendDBModelで、ハッシュタグ別にデータを保存するメソッドを作成する。
+                            print(hashTagText)
+                            print("テスト")
+                        }
+                    }catch{
+                        
+                    }
+            
+            
+            
             
             //投稿に成功したら、アラートを表示させる。
             successAlert()
