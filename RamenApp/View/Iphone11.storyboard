@@ -1034,20 +1034,9 @@
             <point key="canvasLocation" x="2705.7971014492755" y="-627.45535714285711"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="7BW-vo-1Ko">
-            <size key="intrinsicContentSize" width="270" height="50"/>
-        </designable>
-        <designable name="fKi-6Q-0I3">
-            <size key="intrinsicContentSize" width="145" height="25"/>
-        </designable>
-        <designable name="mjp-dg-Xjg">
-            <size key="intrinsicContentSize" width="260" height="48"/>
-        </designable>
-    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="fGy-nP-rne"/>
-        <segue reference="C52-jZ-46O"/>
+        <segue reference="v4f-Ag-7yy"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="moreInfo" width="128" height="128"/>

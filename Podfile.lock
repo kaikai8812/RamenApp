@@ -212,6 +212,7 @@ PODS:
     - abseil/base/base_internal
     - abseil/base/config
     - abseil/meta/type_traits
+  - ActiveLabel (1.1.0)
   - AMPagerTabs (0.3.0)
   - BoringSSL-GRPC (0.0.7):
     - BoringSSL-GRPC/Implementation (= 0.0.7)
@@ -379,6 +380,7 @@ PODS:
     - SteviaLayout (~> 4.7.3)
 
 DEPENDENCIES:
+  - ActiveLabel
   - AMPagerTabs
   - Cosmos
   - EMAlertController
@@ -395,6 +397,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - abseil
+    - ActiveLabel
     - AMPagerTabs
     - BoringSSL-GRPC
     - Cosmos
@@ -426,6 +429,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
+  ActiveLabel: 5e3f4de79a1952d4604b845a0610d4776e4b82b3
   AMPagerTabs: 8e9fc3ef9ce8381e3d2396c40d80d083b842c34a
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
@@ -455,6 +459,6 @@ SPEC CHECKSUMS:
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
   YPImagePicker: 6f410f475bd22fa8cd430495b54d4b2f15865c2d
 
-PODFILE CHECKSUM: 856ab213baf620f2760df08ccf6e675ab8cca452
+PODFILE CHECKSUM: 9004ad6060944f5989ab572250b7b92ab2e4fa3b
 
 COCOAPODS: 1.10.1
