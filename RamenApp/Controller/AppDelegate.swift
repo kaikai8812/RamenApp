@@ -22,12 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         
         //ログアウト処理
-        let fireBaseAuth = Auth.auth()
-        do {
-            try fireBaseAuth.signOut()
-        } catch let signOutError as NSError {
-            print("Error signing out %@", signOutError)
-        }
+//        let fireBaseAuth = Auth.auth()
+//        do {
+//            try fireBaseAuth.signOut()
+//        } catch let signOutError as NSError {
+//            print("Error signing out %@", signOutError)
+//        }
 //
         return true
     }

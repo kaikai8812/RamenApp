@@ -167,8 +167,7 @@ class CameraViewController: UIViewController,DoneSendCentents {
                         for match in regex.matches(in: hashTagText! as String, options: [], range: NSRange(location: 0, length: hashTagText!.length)) {
                                 
                             //sendDBModelで、ハッシュタグ別にデータを保存するメソッドを作成する。
-                            print(hashTagText)
-                            print("テスト")
+                            sendDBModel.sendHashTagDB(price: priceTextField.text!, category: categoryString!, shopName: shopNameTextField.text!, review: reviewTextView.text!, userName: (profile.userName)!, imageData: (cotentImageView.image?.jpegData(compressionQuality: 0.1))!, sender: profile, rate: reviewCosmosview.rating, hashTag:hashTagText!.substring(with: match.range) )
                         }
                     }catch{
                         

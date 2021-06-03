@@ -124,6 +124,38 @@ class SendDBModel{
         }
     }
     
+    //ハッシュタグ別にデータを保存するメソッド
+    func sendHashTagDB(price:String,category:String,shopName:String,review:String,userName:String,imageData:Data,sender:ProfileModel,rate:Double, hashTag:String) {
+        let imageRef = Storage.storage().reference().child("hashTag").child("\(UUID().uuidString + String(Date().timeIntervalSince1970)).jpg")
+        
+        imageRef.putData(imageData, metadata: nil) { metaData, error in
+            
+            if error != nil{
+                return
+            }
+            imageRef.downloadURL { url, error in
+                
+                if error != nil{
+                    return
+                }
+                
+                if url != nil{
+                    print()
+                    self.myProfile.append(sender.imageURLString!)
+                    self.myProfile.append(sender.profileText!)
+                    self.myProfile.append(sender.userID!)
+                    self.myProfile.append(sender.userName!)
+                    
+                    //ハッシュタグ別で投稿を保存する
+                    self.db.collection(hashTag).document().setData(["userName":userName,"userID":Auth.auth().currentUser!.uid, "price":price,"shopName":shopName,"review":review,"image":url?.absoluteString,"sender":self.myProfile,"rate":rate, "Date": String(Date().timeIntervalSince1970)])
+                    
+//                    //画面遷移を行うプロトコルを発動
+//                    self.doneSendContents?.checkDoneContents()
+                }
+            }
+        }
+    }
+    
     //フォロー関係のメソッド
     //ここでのuserIDは、プロフィール画面上のuserのid
     //contentmodelに、相手のユーザー情報が詰まっているので、引数に使用
