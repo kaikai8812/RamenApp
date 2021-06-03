@@ -17,5 +17,5 @@ target 'RamenApp' do
   pod 'IQKeyboardManagerSwift'
   pod 'PKHUD'
   pod 'SSSpinnerButton'
-
+  pod 'ActiveLabel'
 end

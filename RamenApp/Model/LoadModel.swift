@@ -70,16 +70,6 @@ class LoadModel {
                     print(doc.documentID)
                     let data = doc.data()
                     
-                    print((data["userID"] as? String)!)
-                    print((data["userName"] as? String)!)
-                    print((data["image"] as? String)!)
-                    print((data["shopName"] as? String)!)
-                    print((data["sender"] as? [String])!)
-                    print((data["review"] as? String)!)
-                    print((data["price"] as? String)!)
-                    print((data["rate"] as? Double)!)
-                    print((data["Date"] as? String)!)
-                    print("")
                     
                     var test = String()
                     test = data["userName"] as! String
@@ -101,6 +91,37 @@ class LoadModel {
                 
             }
         }
+    }
+    
+    //ハッシュタグ別に投稿情報を受信する。
+    func loadHashTagContents(HashTag:String) {
+        
+        print("#" + "\(HashTag)")
+        print("")
+        db.collection("#" + "\(HashTag)").order(by: "Date").addSnapshotListener { snapShot, error in
+            
+            self.contentModelArray = []
+            if let snapShotDoc = snapShot?.documents{
+                for doc in snapShotDoc {
+                    let data = doc.data()
+                    
+                    if let userID = (data["userID"])! as? String, let userName = (data["userName"])! as? String, let image = (data["image"])! as? String,let shopName = (data["shopName"])! as? String,let review = (data["review"])! as? String,let price = (data["price"])! as? String,let sender = (data["sender"])! as? [String],let rate = (data["rate"])! as? Double, let date = (data["Date"])! as? String{
+                        
+                        //データが入ったモデルをインスタンス化
+                        let contentModel = ContentModel(userName: userName, userID: userID, price: price, shopName: shopName, review: review, imageURLString: image, rate: rate, sender: sender)
+                        
+                        //配列に代入
+                        self.contentModelArray.append(contentModel)
+                        print(self.contentModelArray.count)
+                        print("")
+                        
+                    }
+                }
+                self.getDataProtocol?.getData(dataArray: self.contentModelArray)
+            }
+            
+        }
+        
     }
     
     //プロフィール画面で、ユーザー別の投稿データを取得する際に使用

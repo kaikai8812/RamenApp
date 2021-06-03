@@ -8,6 +8,7 @@
 import UIKit
 import SDWebImage
 import Cosmos
+import ActiveLabel
 
 class DetailViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
@@ -78,9 +79,6 @@ class DetailViewController: UIViewController, UITableViewDelegate,UITableViewDat
         let priceLabel = cell.contentView.viewWithTag(2) as! UILabel
         priceLabel.text = contentModel?.price
         
-        let reviewTextView = cell.contentView.viewWithTag(3) as! UITextView
-        reviewTextView.text = contentModel?.review
-        
         let reviewRatingView = cell.contentView.viewWithTag(4) as! CosmosView
         reviewRatingView.rating = (contentModel?.rate)!
         
@@ -93,6 +91,24 @@ class DetailViewController: UIViewController, UITableViewDelegate,UITableViewDat
         
         let userProfileTextView = cell.contentView.viewWithTag(7) as! UITextView
         userProfileTextView.text = contentModel?.sender![1]
+        
+        
+        //ハッシュタグ関係の記述
+        let reviewTextLabel = cell.contentView.viewWithTag(3) as! ActiveLabel
+        reviewTextLabel.text = contentModel?.review
+        
+        //ハッシュタグをタップした際に、対応したハッシュタグの投稿が表示される画面へ遷移
+        
+        reviewTextLabel.handleHashtagTap { (hashtag) in
+            
+            let hashVC = self.storyboard?.instantiateViewController(identifier: "hashVC") as! HashTagViewController
+            
+            hashVC.hashTag = hashtag
+            self.navigationController?.pushViewController(hashVC, animated: true)
+            
+        }
+        
+        
         
         return cell
         
