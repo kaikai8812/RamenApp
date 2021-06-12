@@ -492,7 +492,7 @@
             <objects>
                 <viewController storyboardIdentifier="profileVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8bC-Pq-TTv" customClass="ProfileViewController" customModule="RamenApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8LA-pQ-spt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kyt-kZ-gkW">
@@ -603,6 +603,7 @@
                         <outlet property="tableView" destination="2bI-PF-qOK" id="QBP-0z-bzH"/>
                         <outlet property="userNameLabel" destination="8XW-np-4yx" id="4Tc-3m-gPd"/>
                         <segue destination="I6H-Cu-dSL" kind="show" id="z1E-lo-D5x"/>
+                        <segue destination="zGg-SQ-58x" kind="show" id="lhB-0M-diq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yas-p4-znu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -679,7 +680,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07u-vM-Shx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3614.4927536231885" y="1574.3303571428571"/>
+            <point key="canvasLocation" x="3099" y="2186"/>
         </scene>
         <!--Content Detail View Controller-->
         <scene sceneID="1MQ-4n-dhD">
@@ -715,7 +716,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1e9-VX-YRZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4507" y="1576"/>
+            <point key="canvasLocation" x="5457" y="802"/>
+        </scene>
+        <!--Profile Edit View Controller-->
+        <scene sceneID="kl6-6a-gD8">
+            <objects>
+                <viewController id="zGg-SQ-58x" customClass="ProfileEditViewController" customModule="RamenApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tfz-lo-nhn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="aHa-Ca-yUb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="W2T-9F-Qzz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hwm-wW-SJu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4428" y="1681"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="I3f-bL-Wsh">
@@ -972,6 +989,7 @@
                         <outlet property="tableView" destination="3qL-r2-oJb" id="XdI-AI-ReO"/>
                         <outlet property="userNameLabel" destination="MIw-TD-EUp" id="xzw-t0-uaw"/>
                         <segue destination="I6H-Cu-dSL" kind="show" id="fGy-nP-rne"/>
+                        <segue destination="zGg-SQ-58x" kind="show" id="cWw-5T-e2e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Xl-Yu-rUf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1038,7 +1056,7 @@
             <objects>
                 <viewController storyboardIdentifier="hashVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0f1-C1-ady" customClass="HashTagViewController" customModule="RamenApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" ambiguous="YES" id="HP4-rR-cuA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wy1-Si-58M">
@@ -1156,8 +1174,9 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
+        <segue reference="lhB-0M-diq"/>
         <segue reference="fGy-nP-rne"/>
-        <segue reference="v4f-Ag-7yy"/>
+        <segue reference="C52-jZ-46O"/>
         <segue reference="Fd5-i6-FQT"/>
     </inferredMetricsTieBreakers>
     <resources>

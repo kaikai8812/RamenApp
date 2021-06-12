@@ -41,6 +41,7 @@
 		6CDB846D265DCC16008C83A0 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB846C265DCC16008C83A0 /* ProfileModel.swift */; };
 		6CDB846F265DCCB4008C83A0 /* UserDefautsEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB846E265DCCB4008C83A0 /* UserDefautsEX.swift */; };
 		6CDB8471265DE423008C83A0 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB8470265DE423008C83A0 /* CameraViewController.swift */; };
+		6CEBA3B72674F69A00A46B74 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBA3B62674F69A00A46B74 /* ProfileEditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		6CDB846C265DCC16008C83A0 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		6CDB846E265DCCB4008C83A0 /* UserDefautsEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefautsEX.swift; sourceTree = "<group>"; };
 		6CDB8470265DE423008C83A0 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		6CEBA3B62674F69A00A46B74 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		948EEFF0A60A92E025700A9F /* Pods_RamenApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RamenApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99DED77FB533BD1EEE71C340 /* Pods-RamenApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RamenApp.release.xcconfig"; path = "Target Support Files/Pods-RamenApp/Pods-RamenApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,6 +194,7 @@
 				6CA6C3FD26610A6F000BE861 /* SignInViewController.swift */,
 				6CA6C3FF26611316000BE861 /* TabBarController.swift */,
 				6C5678D02668B6EA00DD045D /* HashTagViewController.swift */,
+				6CEBA3B62674F69A00A46B74 /* ProfileEditViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				6CC8E32E265E59D50006E377 /* CheckModel.swift in Sources */,
 				6CDB8471265DE423008C83A0 /* CameraViewController.swift in Sources */,
 				6CC8E330265E77760006E377 /* LoadModel.swift in Sources */,
+				6CEBA3B72674F69A00A46B74 /* ProfileEditViewController.swift in Sources */,
 				6C5678D12668B6EA00DD045D /* HashTagViewController.swift in Sources */,
 				6C014CF9265F556F00224290 /* WebViewController.swift in Sources */,
 				6C014CF7265F2AFA00224290 /* DetailViewController.swift in Sources */,
