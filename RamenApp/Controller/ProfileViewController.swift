@@ -42,6 +42,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBOutlet weak var followButton: SSSpinnerButton!
     @IBOutlet weak var profileTextLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var profileEditButton: UIButton!
     
 
     
@@ -241,6 +242,16 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         FFVC.tag = sender.tag
         
         self.navigationController?.pushViewController(FFVC, animated: true)
+    }
+    
+//    プロフィール編集画面へ遷移する
+    @IBAction func goProfileEdit(_ sender: Any) {
+        
+        let profileEditVC = (storyboard?.instantiateViewController(identifier: "profileEditVC"))! as ProfileEditViewController
+        
+        navigationController?.pushViewController(profileEditVC, animated: true)
+        
+        
     }
     
     

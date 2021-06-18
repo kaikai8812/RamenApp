@@ -7,7 +7,6 @@
 
 import Foundation
 
-//Data型で保存ができるように、「Coadable」プロトコルに準拠させる。
 struct ProfileModel{
     
     
