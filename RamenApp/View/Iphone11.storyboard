@@ -736,11 +736,11 @@
             <objects>
                 <viewController storyboardIdentifier="profileEditVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zGg-SQ-58x" customClass="ProfileEditViewController" customModule="RamenApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tfz-lo-nhn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="プロフィール編集画面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgy-Bq-YIf">
-                                <rect key="frame" x="84" y="73" width="246" height="56"/>
+                                <rect key="frame" x="84" y="84" width="246" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <nil key="textColor"/>
@@ -1247,7 +1247,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="cWw-5T-e2e"/>
+        <segue reference="lhB-0M-diq"/>
         <segue reference="fGy-nP-rne"/>
         <segue reference="v4f-Ag-7yy"/>
         <segue reference="Fd5-i6-FQT"/>

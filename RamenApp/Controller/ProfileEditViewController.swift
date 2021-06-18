@@ -7,6 +7,8 @@
 
 import UIKit
 import SDWebImage
+import Firebase
+import FirebaseAuth
 
 class ProfileEditViewController: UIViewController {
     
@@ -17,6 +19,7 @@ class ProfileEditViewController: UIViewController {
     
     //loadModelのインスタンス化
     let loadModel = LoadModel()
+    let sendDataModel = SendDBModel()
     
     let userDefaults = UserDefaultsEX()
     //プロフィール情報を保存
@@ -37,7 +40,21 @@ class ProfileEditViewController: UIViewController {
     //変更ボタンを押したら、プロフィール情報を更新する。
 
     @IBAction func profileUpdateButton(_ sender: Any) {
+        
+        //imageViewを、Data型に変換
+        let imageData = (profileImageView.image?.jpegData(compressionQuality: 0.1))!
+        
+        
+        //プロフィール情報の更新
+        sendDataModel.updateProfileData(userID: (profileData?.userID)!, userName: userNameTextView.text!, profileText: userProfileTextView.text, imageData: imageData)
+        
+        //変更成功のアラートを表示する。
+        
+        //自分のプロフィール画面へと戻る
+        
     }
     
     
 }
+
+//プロフィール情報更新、FireBaseとの通信部記述、完了

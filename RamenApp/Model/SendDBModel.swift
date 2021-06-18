@@ -188,4 +188,45 @@ class SendDBModel{
         
     }
     
+    func updateProfileData(userID:String, userName:String, profileText:String, imageData:Data )  {
+        
+        let imageRef = Storage.storage().reference().child("ProfileImage").child("\(UUID().uuidString + String(Date().timeIntervalSince1970)).jpg")
+        
+        imageRef.putData(imageData, metadata: nil) { metaData, error in
+            
+            if error != nil {
+                print(error.debugDescription)
+                return
+            }
+            
+            imageRef.downloadURL { imageURL, error in
+                
+                if error != nil {
+                    print(error.debugDescription)
+                    return
+                }
+                
+                //urlに、画像データのありかを示す画像URLが保存されている。
+                if userID == Auth.auth().currentUser?.uid {
+                
+                    //プロフィールデータの更新
+                    self.db.collection("Users").document(userID).setData(["UserName": userName, "profileText": profileText, "UserID": Auth.auth().currentUser!.uid, "image": imageURL!.absoluteString, "Date": String(Date().timeIntervalSince1970)], merge: true)
+                    
+                }
+            }
+            
+        }
+        
+//        //もし、ちゃんと自分のプロフィールidだったら
+//        if userID == Auth.auth().currentUser?.uid {
+//
+//            //FireStore内のデータを更新する
+//
+//            db.collection("Users").document(userID).setData(<#T##documentData: [String : Any]##[String : Any]#>)
+//
+//        }
+        
+        
+    }
+    
 }
